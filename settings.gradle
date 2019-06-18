@@ -1,0 +1,1 @@
+include ':app', ':base', ':algorithm', ':architecture', ':framework', ':componment'
