@@ -1,6 +1,5 @@
 package com.qibenyu.ui
 
 
-interface IShowable{
+interface IShowable
 
-}
