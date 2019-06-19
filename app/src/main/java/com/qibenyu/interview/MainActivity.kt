@@ -2,13 +2,18 @@ package com.qibenyu.interview
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.GravityCompat
+import android.support.v4.view.ViewPager
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import com.qibenyu.componment.SlidingTabLayout
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -21,6 +26,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
+        val viewPager: ViewPager = findViewById(R.id.view_pager)
+        val slidingTab: SlidingTabLayout = findViewById(R.id.sliding_tab_layout)
+
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
@@ -28,6 +36,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+
+        viewPager.adapter = MainAdapter(fragmentManager = supportFragmentManager)
+        viewPager.offscreenPageLimit = 5;
+        slidingTab.setViewPager(viewPager)
+        viewPager.currentItem = 0
     }
 
     override fun onBackPressed() {
@@ -80,5 +93,35 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+}
+
+class MainAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+    private val mTitles: Array<String> = sContext.resources.getStringArray(R.array.works)
+
+    private val fragments: Array<Fragment?> = arrayOfNulls<Fragment>(mTitles.size)
+
+    override fun getItem(position: Int): Fragment? {
+
+        if (fragments[position] == null) {
+            when (position) {
+                0 -> fragments[position] = SkillListFragment.newInstance(uiMap)
+                1 -> fragments[position] = SkillListFragment.newInstance(algorithmMap)
+                2 -> fragments[position] = SkillListFragment.newInstance(frameworkMap)
+                3 -> fragments[position] = SkillListFragment.newInstance(architectureMap)
+                4 -> fragments[position] = SkillListFragment.newInstance(exploreMap)
+                5 -> fragments[position] = SkillListFragment.newInstance(summaryMap)
+                6 -> fragments[position] = SkillListFragment.newInstance(patternMap)
+            }
+        }
+        return fragments[position]
+    }
+
+    override fun getCount(): Int {
+        return mTitles.size
+    }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return mTitles[position]
     }
 }

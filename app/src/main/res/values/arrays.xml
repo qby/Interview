@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="works">
+        <item>UI</item>
+        <item>Algorithm</item>
+        <item>Framework</item>
+        <item>Architecture</item>
+        <item>Explore</item>
+        <item>Summary</item>
+        <item>Pattern</item>
+    </string-array>
+</resources>

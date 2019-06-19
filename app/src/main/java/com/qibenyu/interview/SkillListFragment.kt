@@ -1,5 +1,7 @@
 package com.qibenyu.interview
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -7,17 +9,17 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.qibenyu.componment.DividerItemDecoration
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.item_skill_name.view.*
 
 
 class SkillListFragment : Fragment() {
 
-
-    private lateinit var mSkillMap: Map<String, Class<*>>
-
-    private lateinit var mRecyclerView: RecyclerView
+    lateinit var mRecyclerView: RecyclerView
 
     companion object {
-        fun newInstance(skills: HashMap<String, Any>): SkillListFragment {
+        fun newInstance(skills: HashMap<String, Class<out Activity>>): SkillListFragment {
             val bundle = Bundle()
             bundle.putSerializable("skills", skills)
             val fragment = SkillListFragment()
@@ -33,23 +35,60 @@ class SkillListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mSkillMap = arguments?.get("skills") as Map<String, Class<out Activity>>
+        val data: ArrayList<String> = arrayListOf<String>()
+        data.addAll(mSkillMap.keys)
+
         mRecyclerView = view.findViewById(R.id.recycler_view)
-        mRecyclerView.let {
-            it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        with(mRecyclerView) {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    DividerItemDecoration.DIVIDERITEM_HORIZONTAL,
+                    R.color.divider_view_bg
+                )
+            )
+            animation = null
+            adapter = SkillAdapter(data)
         }
 
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private lateinit var mSkillMap: Map<String, Class<out Activity>>
 
-        mSkillMap = arguments?.get("skills") as Map<String, Class<*>>
+    inner class SkillAdapter(val data: List<String>) : RecyclerView.Adapter<ItemViewHolder>() {
 
+        override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ItemViewHolder {
+            val view = LayoutInflater.from(context)
+                .inflate(R.layout.item_skill_name, viewGroup, false)
+            return ItemViewHolder(view)
+        }
+
+        override fun getItemCount(): Int {
+            return data.size
+        }
+
+        override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+            holder.bindItem(position, data[position])
+        }
     }
 
-    inner class ItemAdapter(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ItemViewHolder(override val containerView: View?) : RecyclerView.ViewHolder(containerView!!),
+        LayoutContainer {
 
+        fun bindItem(position: Int, skill: String) {
 
+            with(itemView) {
+                itemSkill.text = skill
+                setOnClickListener {
+                    val clazz: Class<out Activity>? = mSkillMap[skill]
+                    context?.startActivity(Intent(context, clazz))
+                }
+            }
+
+        }
     }
+
 }
 
