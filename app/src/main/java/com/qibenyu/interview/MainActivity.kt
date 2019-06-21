@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView.setNavigationItemSelectedListener(this)
 
         viewPager.adapter = MainAdapter(fragmentManager = supportFragmentManager)
-        viewPager.offscreenPageLimit = 5;
+        viewPager.offscreenPageLimit = 10
         slidingTab.setViewPager(viewPager)
         viewPager.currentItem = 0
     }
