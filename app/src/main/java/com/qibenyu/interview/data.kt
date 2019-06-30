@@ -12,7 +12,9 @@ var patternMap = hashMapOf<String, Class<out Activity>>()
 
 var frameworkMap = hashMapOf<String, Class<out Activity>>()
 
-var algorithmMap = hashMapOf<String, Class<out Activity>>()
+var algorithmMap = hashMapOf<String, Class<out Activity>>(
+    "Binary Search" to 
+)
 
 var architectureMap = hashMapOf<String, Class<out Activity>>()
 

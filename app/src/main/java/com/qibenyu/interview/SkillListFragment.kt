@@ -3,9 +3,9 @@ package com.qibenyu.interview
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,9 +14,9 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_skill_name.view.*
 
 
-class SkillListFragment : Fragment() {
+class SkillListFragment : androidx.fragment.app.Fragment() {
 
-    lateinit var mRecyclerView: RecyclerView
+    lateinit var mRecyclerView: androidx.recyclerview.widget.RecyclerView
 
     companion object {
         fun newInstance(skills: HashMap<String, Class<out Activity>>): SkillListFragment {
@@ -41,7 +41,11 @@ class SkillListFragment : Fragment() {
 
         mRecyclerView = view.findViewById(R.id.recycler_view)
         with(mRecyclerView) {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
+                context,
+                androidx.recyclerview.widget.LinearLayoutManager.VERTICAL,
+                false
+            )
             addItemDecoration(
                 DividerItemDecoration(
                     context,
@@ -57,7 +61,7 @@ class SkillListFragment : Fragment() {
 
     private lateinit var mSkillMap: Map<String, Class<out Activity>>
 
-    inner class SkillAdapter(val data: List<String>) : RecyclerView.Adapter<ItemViewHolder>() {
+    inner class SkillAdapter(val data: List<String>) : androidx.recyclerview.widget.RecyclerView.Adapter<ItemViewHolder>() {
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ItemViewHolder {
             val view = LayoutInflater.from(context)
@@ -74,7 +78,7 @@ class SkillListFragment : Fragment() {
         }
     }
 
-    inner class ItemViewHolder(override val containerView: View?) : RecyclerView.ViewHolder(containerView!!),
+    inner class ItemViewHolder(override val containerView: View?) : androidx.recyclerview.widget.RecyclerView.ViewHolder(containerView!!),
         LayoutContainer {
 
         fun bindItem(position: Int, skill: String) {
