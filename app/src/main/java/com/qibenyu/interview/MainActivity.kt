@@ -24,9 +24,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val drawerLayout: androidx.drawerlayout.widget.DrawerLayout = findViewById(R.id.drawer_layout)
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-        val viewPager: androidx.viewpager.widget.ViewPager = findViewById(R.id.view_pager)
+        val viewPager: ViewPager = findViewById(R.id.view_pager)
         val slidingTab: SlidingTabLayout = findViewById(R.id.sliding_tab_layout)
 
         val toggle = ActionBarDrawerToggle(
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() {
-        val drawerLayout: androidx.drawerlayout.widget.DrawerLayout = findViewById(R.id.drawer_layout)
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
@@ -90,18 +90,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
         }
-        val drawerLayout: androidx.drawerlayout.widget.DrawerLayout = findViewById(R.id.drawer_layout)
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 }
 
-class MainAdapter(fragmentManager: androidx.fragment.app.FragmentManager) : androidx.fragment.app.FragmentPagerAdapter(fragmentManager) {
+class MainAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
     private val mTitles: Array<String> = sContext.resources.getStringArray(R.array.works)
 
-    private val fragments: Array<androidx.fragment.app.Fragment?> = arrayOfNulls<androidx.fragment.app.Fragment>(mTitles.size)
+    private val fragments: Array<Fragment?> = arrayOfNulls(mTitles.size)
 
-    override fun getItem(position: Int): androidx.fragment.app.Fragment? {
+    override fun getItem(position: Int): Fragment? {
 
         if (fragments[position] == null) {
             when (position) {

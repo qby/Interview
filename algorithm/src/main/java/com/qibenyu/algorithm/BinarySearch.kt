@@ -7,24 +7,20 @@ fun binarySearch(array: IntArray, target: Int): Int {
 
 
     var lo = 0
-    var hi = array.size
+    var hi = array.size - 1
 
-    var mid = (hi - lo) / 2
+    while (lo <= hi) {
 
-    while (hi > lo) {
+        var mid = lo + (hi - lo) / 2
 
-        if (target == array[mid]) {
-            return mid
+        println("mid = $mid")
+        when {
+            target > array[mid] -> lo = mid + 1
+            target < array[mid] -> hi = mid - 1
+            else -> return mid
         }
-        if (target > array[mid]) {
-            lo = mid + 1
-        } else {
-            hi = mid - 1
-        }
-
-        mid = (hi - lo) / 2
-
     }
-    return 0
+
+    return -1
 
 }

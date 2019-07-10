@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.item_skill_name.view.*
 
 class SkillListFragment : androidx.fragment.app.Fragment() {
 
-    lateinit var mRecyclerView: androidx.recyclerview.widget.RecyclerView
+    lateinit var mRecyclerView: RecyclerView
 
     companion object {
         fun newInstance(skills: HashMap<String, Class<out Activity>>): SkillListFragment {
@@ -41,11 +41,7 @@ class SkillListFragment : androidx.fragment.app.Fragment() {
 
         mRecyclerView = view.findViewById(R.id.recycler_view)
         with(mRecyclerView) {
-            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
-                context,
-                androidx.recyclerview.widget.LinearLayoutManager.VERTICAL,
-                false
-            )
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             addItemDecoration(
                 DividerItemDecoration(
                     context,
@@ -61,7 +57,7 @@ class SkillListFragment : androidx.fragment.app.Fragment() {
 
     private lateinit var mSkillMap: Map<String, Class<out Activity>>
 
-    inner class SkillAdapter(val data: List<String>) : androidx.recyclerview.widget.RecyclerView.Adapter<ItemViewHolder>() {
+    inner class SkillAdapter(val data: List<String>) : RecyclerView.Adapter<ItemViewHolder>() {
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ItemViewHolder {
             val view = LayoutInflater.from(context)
@@ -78,7 +74,7 @@ class SkillListFragment : androidx.fragment.app.Fragment() {
         }
     }
 
-    inner class ItemViewHolder(override val containerView: View?) : androidx.recyclerview.widget.RecyclerView.ViewHolder(containerView!!),
+    inner class ItemViewHolder(override val containerView: View?) : RecyclerView.ViewHolder(containerView!!),
         LayoutContainer {
 
         fun bindItem(position: Int, skill: String) {

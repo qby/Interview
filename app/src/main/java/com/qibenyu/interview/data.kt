@@ -1,6 +1,7 @@
 package com.qibenyu.interview
 
 import android.app.Activity
+import com.qibenyu.algorithm.AlgorithmActivity
 import com.qibenyu.ui.LoadingActivity
 
 
@@ -13,7 +14,7 @@ var patternMap = hashMapOf<String, Class<out Activity>>()
 var frameworkMap = hashMapOf<String, Class<out Activity>>()
 
 var algorithmMap = hashMapOf<String, Class<out Activity>>(
-    "Binary Search" to 
+    "Binary Search" to AlgorithmActivity::class.java
 )
 
 var architectureMap = hashMapOf<String, Class<out Activity>>()

@@ -37,4 +37,5 @@ dependencies {
     implementation project(":ui")
     implementation project(":componment")
     implementation project(":base")
+    implementation project(":algorithm")
 }
