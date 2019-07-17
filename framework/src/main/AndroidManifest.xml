@@ -1,2 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.qibenyu.framework"/>
+          package="com.qibenyu.framework">
+
+    <application>
+        <activity
+                android:name=".HandlerActivity"
+                android:label="@string/title_activity_handler"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+    </application>
+
+</manifest>

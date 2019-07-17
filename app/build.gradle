@@ -39,4 +39,5 @@ dependencies {
     implementation project(":componment")
     implementation project(":algorithm")
     implementation project(":architecture")
+    implementation project(":framework")
 }

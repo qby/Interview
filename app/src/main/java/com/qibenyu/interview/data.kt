@@ -3,6 +3,7 @@ package com.qibenyu.interview
 import android.app.Activity
 import com.qibenyu.algorithm.AlgorithmActivity
 import com.qibenyu.architecture.jetpack.JetpackActivity
+import com.qibenyu.framework.HandlerActivity
 import com.qibenyu.ui.LoadingActivity
 
 
@@ -12,7 +13,9 @@ var uiMap = hashMapOf<String, Class<out Activity>>(
 
 var patternMap = hashMapOf<String, Class<out Activity>>()
 
-var frameworkMap = hashMapOf<String, Class<out Activity>>()
+var frameworkMap = hashMapOf<String, Class<out Activity>>(
+    "Handler" to HandlerActivity::class.java
+)
 
 var algorithmMap = hashMapOf<String, Class<out Activity>>(
     "Binary Search" to AlgorithmActivity::class.java
