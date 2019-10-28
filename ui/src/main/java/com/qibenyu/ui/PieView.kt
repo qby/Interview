@@ -1,0 +1,67 @@
+package com.qibenyu.ui
+
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Path
+import android.util.AttributeSet
+import android.util.Log
+import android.view.View
+import com.qibenyu.base.dp2px
+
+
+class PieView(context: Context, attr: AttributeSet) : View(context, attr) {
+
+    lateinit var paint: Paint
+
+    lateinit var path: Path
+
+
+    private val degrees = floatArrayOf(60f, 100f, 120f, 80f)
+    private val colors = intArrayOf(
+        Color.parseColor("#2979FF"), Color.parseColor("#C2185B"),
+        Color.parseColor("#009688"), Color.parseColor("#FF8F00")
+    )
+
+    companion object {
+        val TAG = "Pie"
+        val RADIUS = dp2px(150f)
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+
+        paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        path = Path()
+    }
+
+    override fun onDraw(canvas: Canvas?) {
+        super.onDraw(canvas)
+
+        var startAngle = 0f
+        for (i in degrees.indices) {
+
+            canvas?.save()
+            if (i == 2) {
+                canvas?.translate(-10f,-10f)
+            }
+
+            paint.color = colors[i]
+            canvas?.drawArc(
+                width / 2 - RADIUS,
+                height / 2 - RADIUS,
+                width / 2 + RADIUS,
+                height / 2 + RADIUS,
+                startAngle, degrees[i], true, paint
+            )
+
+            canvas?.restore()
+            Log.d(TAG,"pie chart index = $i , start = $startAngle , end = $")
+
+            startAngle += degrees[i]
+        }
+
+    }
+}

@@ -4,11 +4,14 @@ import android.app.Activity
 import com.qibenyu.algorithm.AlgorithmActivity
 import com.qibenyu.architecture.jetpack.JetpackActivity
 import com.qibenyu.framework.HandlerActivity
+import com.qibenyu.ui.DashActivity
+import com.qibenyu.ui.DashView
 import com.qibenyu.ui.LoadingActivity
 
 
 var uiMap = hashMapOf<String, Class<out Activity>>(
-    "Loading" to LoadingActivity::class.java
+    "Loading" to LoadingActivity::class.java,
+    "DashView" to DashActivity::class.java
 )
 
 var patternMap = hashMapOf<String, Class<out Activity>>()

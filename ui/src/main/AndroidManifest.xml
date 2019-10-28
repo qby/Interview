@@ -1,8 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.qibenyu.ui">
-
+        package="com.qibenyu.ui">
 
     <application>
-        <activity android:name=".LoadingActivity"/>
+        <activity android:name=".DashActivity"></activity>
+        <activity android:name=".LoadingActivity" />
     </application>
+
 </manifest>
