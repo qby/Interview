@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         tools:context=".DashActivity">
 
-    <com.qibenyu.ui.PieView
+    <com.qibenyu.ui.AvatarView
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

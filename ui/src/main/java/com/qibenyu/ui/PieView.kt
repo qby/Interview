@@ -9,6 +9,8 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import com.qibenyu.base.dp2px
+import kotlin.math.cos
+import kotlin.math.sin
 
 
 class PieView(context: Context, attr: AttributeSet) : View(context, attr) {
@@ -27,6 +29,7 @@ class PieView(context: Context, attr: AttributeSet) : View(context, attr) {
     companion object {
         val TAG = "Pie"
         val RADIUS = dp2px(150f)
+        val LENGTH = dp2px(10f)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -44,21 +47,22 @@ class PieView(context: Context, attr: AttributeSet) : View(context, attr) {
         for (i in degrees.indices) {
 
             canvas?.save()
-            if (i == 2) {
-                canvas?.translate(-10f,-10f)
+            if (i == 1) {
+                canvas?.translate(
+                    (cos(Math.toRadians((startAngle + degrees[i] / 2).toDouble())) * LENGTH).toFloat(),
+                    (sin(Math.toRadians((startAngle + degrees[i] / 2).toDouble())) * LENGTH).toFloat()
+                )
             }
 
             paint.color = colors[i]
             canvas?.drawArc(
-                width / 2 - RADIUS,
-                height / 2 - RADIUS,
-                width / 2 + RADIUS,
-                height / 2 + RADIUS,
+                width / 2 - RADIUS, height / 2 - RADIUS,
+                width / 2 + RADIUS, height / 2 + RADIUS,
                 startAngle, degrees[i], true, paint
             )
 
             canvas?.restore()
-            Log.d(TAG,"pie chart index = $i , start = $startAngle , end = $")
+            Log.d(TAG, "pie chart index = $i , start = $startAngle , end = $")
 
             startAngle += degrees[i]
         }
