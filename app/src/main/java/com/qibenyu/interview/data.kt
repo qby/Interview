@@ -10,7 +10,8 @@ import com.qibenyu.ui.*
 var uiList = arrayListOf(
     "Dashboard",
     "MaterialEditText",
-    "PieChart"
+    "PieChart",
+    "AvatarView"
 )
 
 var patternMap = hashMapOf<String, Class<out Activity>>()

@@ -10,6 +10,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import com.qibenyu.base.bind2ViewGroup
 import com.qibenyu.base.dp2px
 import kotlin.math.cos
 import kotlin.math.sin
@@ -74,8 +75,7 @@ class PieChart(context: Context) : View(context), IShowable {
     }
 
     override fun bind(viewGroup: ViewGroup) {
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
-        viewGroup.addView(this)
+        bind2ViewGroup(viewGroup)
     }
 
 }

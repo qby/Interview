@@ -4,13 +4,13 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.*
-import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
+import com.qibenyu.base.bind2ViewGroup
 import com.qibenyu.base.dp2px
 
 
-class AvatarView(context: Context, attr: AttributeSet) : View(context, attr), IShowable {
+class AvatarView(context: Context) : View(context), IShowable {
 
     private val bitmap = getAvatar(dp2px(200f).toInt())
 
@@ -108,11 +108,7 @@ class AvatarView(context: Context, attr: AttributeSet) : View(context, attr), IS
     }
 
     override fun bind(viewGroup: ViewGroup) {
-        layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT
-        )
-        viewGroup.addView(this)
+        bind2ViewGroup(viewGroup)
     }
 
     override fun show() {
