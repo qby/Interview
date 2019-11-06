@@ -105,7 +105,7 @@ class MainAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragm
 
         if (fragments[position] == null) {
             when (position) {
-                0 -> fragments[position] = SkillListFragment.newInstance(uiMap)
+                0 -> fragments[position] = UIListFragment.newInstance(uiList)
                 1 -> fragments[position] = SkillListFragment.newInstance(algorithmMap)
                 2 -> fragments[position] = SkillListFragment.newInstance(frameworkMap)
                 3 -> fragments[position] = SkillListFragment.newInstance(architectureMap)

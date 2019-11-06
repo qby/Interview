@@ -1,5 +1,12 @@
 package com.qibenyu.ui
 
+import android.view.ViewGroup
 
-interface IShowable
 
+interface IShowable {
+
+    fun bind(viewGroup: ViewGroup)
+
+    fun show()
+
+}

@@ -9,13 +9,13 @@ import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import com.qibenyu.base.dp2px
 import kotlin.math.cos
 import kotlin.math.sin
 
 
-class PieView(context: Context, attr: AttributeSet) : View(context, attr) {
-
+class PieChart(context: Context) : View(context), IShowable {
     lateinit var paint: Paint
 
     lateinit var path: Path
@@ -69,4 +69,13 @@ class PieView(context: Context, attr: AttributeSet) : View(context, attr) {
         }
 
     }
+
+    override fun show() {
+    }
+
+    override fun bind(viewGroup: ViewGroup) {
+        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
+        viewGroup.addView(this)
+    }
+
 }

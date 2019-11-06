@@ -3,8 +3,7 @@
         package="com.qibenyu.ui">
 
     <application>
-        <activity android:name=".DashActivity"></activity>
-        <activity android:name=".LoadingActivity" />
+        <activity android:name=".UIShowActivity" />
     </application>
 
 </manifest>

@@ -4,12 +4,13 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewGroup
 import com.qibenyu.base.dp2px
 import kotlin.math.cos
 import kotlin.math.sin
 
 
-class DashView(context: Context, attr: AttributeSet) : View(context, attr), IShowable {
+class Dashboard(context: Context) : View(context), IShowable {
 
     private lateinit var paint: Paint
     private lateinit var dash: Path
@@ -21,7 +22,7 @@ class DashView(context: Context, attr: AttributeSet) : View(context, attr), ISho
         val RADIUS = dp2px(150f)
         const val ANGLE = 120f
         val LENGTH = dp2px(100f)
-        const val TAG = "DashView"
+        const val TAG = "Dashboard"
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -95,5 +96,14 @@ class DashView(context: Context, attr: AttributeSet) : View(context, attr), ISho
 
         return ((90 + ANGLE / 2) + ((360 - ANGLE) / 20) * mark).toDouble()
     }
+
+    override fun show() {
+    }
+
+    override fun bind(viewGroup: ViewGroup) {
+        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
+        viewGroup.addView(this)
+    }
+
 
 }

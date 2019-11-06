@@ -1,13 +1,16 @@
 package com.qibenyu.ui
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewGroup
 import com.qibenyu.base.dp2px
 
 
-class AvatarView(context: Context, attr: AttributeSet) : View(context, attr) {
+class AvatarView(context: Context, attr: AttributeSet) : View(context, attr), IShowable {
 
     private val bitmap = getAvatar(dp2px(200f).toInt())
 
@@ -23,7 +26,7 @@ class AvatarView(context: Context, attr: AttributeSet) : View(context, attr) {
         camera = Camera()
 
 
-        camera.setLocation(0f,0f, - 6 * resources.displayMetrics.density)
+        camera.setLocation(0f, 0f, -6 * resources.displayMetrics.density)
 
     }
 
@@ -102,6 +105,31 @@ class AvatarView(context: Context, attr: AttributeSet) : View(context, attr) {
 
         return BitmapFactory.decodeResource(resources, R.drawable.maps, option)
 
+    }
+
+    override fun bind(viewGroup: ViewGroup) {
+        layoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
+        )
+        viewGroup.addView(this)
+    }
+
+    override fun show() {
+        val animator1 = ObjectAnimator.ofFloat(this, "dregee", 270f)
+        animator1.duration = 3000
+
+        val animator2 = ObjectAnimator.ofFloat(this, "topFlip", -45f)
+        animator2.duration = 1400
+
+        val animator3 = ObjectAnimator.ofFloat(this, "bottomFlip", 45f)
+        animator2.duration = 1400
+
+        val animatorSet = AnimatorSet()
+        animatorSet.playSequentially(
+            animator3, animator1, animator2
+        )
+        animatorSet.start()
     }
 
 }
