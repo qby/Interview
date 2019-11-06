@@ -99,9 +99,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 class MainAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
     private val mTitles: Array<String> = sContext.resources.getStringArray(R.array.works)
 
-    private val fragments: Array<Fragment?> = arrayOfNulls(mTitles.size)
+    private val fragments: Array<Fragment?> = arrayOfNulls<Fragment?>(mTitles.size)
 
-    override fun getItem(position: Int): Fragment? {
+    override fun getItem(position: Int): Fragment {
 
         if (fragments[position] == null) {
             when (position) {
@@ -114,7 +114,7 @@ class MainAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragm
                 6 -> fragments[position] = SkillListFragment.newInstance(patternMap)
             }
         }
-        return fragments[position]
+        return fragments[position]!!
     }
 
     override fun getCount(): Int {
