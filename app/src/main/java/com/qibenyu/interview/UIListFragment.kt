@@ -2,12 +2,14 @@ package com.qibenyu.interview
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.qibenyu.componment.DividerItemDecoration
+import com.qibenyu.ui.IShowable
 import com.qibenyu.ui.UIShowActivity
 import kotlinx.android.synthetic.main.item_skill_name.view.*
 
@@ -16,10 +18,10 @@ class UIListFragment : Fragment() {
 
     private lateinit var mRecyclerView: RecyclerView
 
-    private lateinit var mUIMap: List<String>
+    private lateinit var mUIMap: List<Class<out IShowable>>
 
     companion object {
-        fun newInstance(uiList: ArrayList<String>): UIListFragment {
+        fun newInstance(uiList: ArrayList<Class<out IShowable>>): UIListFragment {
             val bundle = Bundle()
             bundle.putSerializable("UI", uiList)
             val fragment = UIListFragment()
@@ -39,8 +41,8 @@ class UIListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mUIMap = arguments?.get("UI") as List<String>
-        val data: ArrayList<String> = arrayListOf()
+        mUIMap = arguments?.get("UI") as List<Class<out IShowable>>
+        val data: ArrayList<Class<out IShowable>> = arrayListOf()
         data.addAll(mUIMap)
 
         mRecyclerView = view.findViewById(R.id.recycler_view)
@@ -62,7 +64,7 @@ class UIListFragment : Fragment() {
         }
     }
 
-    inner class UIAdapter(private val data: List<String>) : RecyclerView.Adapter<ItemViewHolder>() {
+    inner class UIAdapter(private val data: List<Class<out IShowable>>) : RecyclerView.Adapter<ItemViewHolder>() {
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ItemViewHolder {
             val view = LayoutInflater.from(context)
@@ -81,13 +83,14 @@ class UIListFragment : Fragment() {
 
     inner class ItemViewHolder(containerView: View?) : RecyclerView.ViewHolder(containerView!!) {
 
-        fun bindItem(position: Int, skill: String) {
+        fun bindItem(position: Int, clazz: Class<out IShowable>) {
+            Log.d("qibenyu", "class canonicalName = ${clazz.canonicalName} , simpleName = ${clazz.simpleName} , name = ${clazz.name}")
 
             with(itemView) {
-                itemSkill.text = skill
+                itemSkill.text = clazz.simpleName
                 setOnClickListener {
                     val intent = Intent(context, UIShowActivity::class.java)
-                    intent.putExtra("UI_SHOW", skill)
+                    intent.putExtra("UI_SHOW", clazz.name)
                     context?.startActivity(intent)
                 }
             }

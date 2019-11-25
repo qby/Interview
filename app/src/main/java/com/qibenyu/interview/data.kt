@@ -5,13 +5,15 @@ import com.qibenyu.algorithm.AlgorithmActivity
 import com.qibenyu.architecture.jetpack.JetpackActivity
 import com.qibenyu.framework.HandlerActivity
 import com.qibenyu.ui.*
+import com.qibenyu.ui.flow.FlowLayout
 
 
-var uiList = arrayListOf(
-    "Dashboard",
-    "MaterialEditText",
-    "PieChart",
-    "AvatarView"
+var uiList = arrayListOf<Class<out IShowable>>(
+    Dashboard::class.java,
+    MaterialEditText::class.java,
+    PieChart::class.java,
+    AvatarView::class.java,
+    FlowLayout::class.java
 )
 
 var patternMap = hashMapOf<String, Class<out Activity>>()

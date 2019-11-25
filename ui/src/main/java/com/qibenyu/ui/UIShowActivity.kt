@@ -29,7 +29,7 @@ class UIShowActivity : AppCompatActivity() {
     private fun showView(viewName: String) {
 
         try {
-            val clazz = Class.forName("${javaClass.`package`?.name}.$viewName")
+            val clazz = Class.forName(viewName)
             val constructor = clazz.getConstructor(Context::class.java)
             val instance = constructor.newInstance(this)
 
