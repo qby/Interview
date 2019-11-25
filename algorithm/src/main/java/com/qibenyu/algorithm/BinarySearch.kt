@@ -32,10 +32,10 @@ class BinarySearch : IAlgorithm {
     }
 
     override fun condition(): String {
-        return "数组"
+        return "数组 (1, 2, 3, 4, 5, 6)"
     }
 
-    override fun anwser(): String {
+    override fun answer(): String {
         return binarySearch(intArrayOf(1, 2, 3, 4, 5, 6), 6).toString()
     }
 }

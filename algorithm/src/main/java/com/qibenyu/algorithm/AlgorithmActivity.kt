@@ -2,6 +2,8 @@ package com.qibenyu.algorithm
 
 import android.app.Activity
 import android.os.Bundle
+import android.text.TextUtils
+import android.view.View
 import kotlinx.android.synthetic.main.acitivity_algorithm.*
 import java.lang.Exception
 
@@ -20,8 +22,23 @@ class AlgorithmActivity : Activity() {
 
         problem.text = algorithm?.problem()
         condition.text = algorithm?.condition()
-        answer.text = algorithm?.anwser()
+        answer.text = algorithm?.answer()
+
+        showThoughtTitle(algorithm)
     }
+
+    private fun showThoughtTitle(algorithm: IAlgorithm?) {
+        val hasThought = !TextUtils.isEmpty(algorithm?.thought())
+        if (hasThought) {
+            thoughtTitle.visibility = View.VISIBLE
+            thought.text = algorithm?.thought()
+            thought.visibility = View.VISIBLE
+        } else {
+            thoughtTitle.visibility = View.GONE
+            thought.visibility = View.GONE
+        }
+    }
+
 
     private fun getAlgorithm(viewName: String?): IAlgorithm? {
 

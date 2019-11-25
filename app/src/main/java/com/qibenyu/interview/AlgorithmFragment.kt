@@ -65,7 +65,8 @@ class AlgorithmFragment : Fragment() {
         }
     }
 
-    inner class AlgorithmAdapter(private val data: List<Class<out IAlgorithm>>) : RecyclerView.Adapter<ItemViewHolder>() {
+    inner class AlgorithmAdapter(private val data: List<Class<out IAlgorithm>>) :
+        RecyclerView.Adapter<ItemViewHolder>() {
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ItemViewHolder {
             val view = LayoutInflater.from(context)
@@ -85,17 +86,28 @@ class AlgorithmFragment : Fragment() {
     inner class ItemViewHolder(containerView: View?) : RecyclerView.ViewHolder(containerView!!) {
 
         fun bindItem(position: Int, clazz: Class<out IAlgorithm>) {
-            Log.d("qibenyu", "class canonicalName = ${clazz.canonicalName} , simpleName = ${clazz.simpleName} , name = ${clazz.name}")
+            Log.d(
+                "qibenyu",
+                "class canonicalName = ${clazz.canonicalName} , simpleName = ${clazz.simpleName} , name = ${clazz.name}"
+            )
 
             with(itemView) {
                 itemSkill.text = clazz.simpleName
                 setOnClickListener {
-                    val intent = Intent(context, AlgorithmActivity::class.java)
-                    intent.putExtra("ALGORITHM", clazz.name)
-                    context?.startActivity(intent)
+                    open(clazz)
+                }
+
+                if (position == openItem) {
+                    open(clazz)
                 }
             }
 
+        }
+
+        private fun open(clazz: Class<out IAlgorithm>) {
+            val intent = Intent(context, AlgorithmActivity::class.java)
+            intent.putExtra("ALGORITHM", clazz.name)
+            context?.startActivity(intent)
         }
     }
 
