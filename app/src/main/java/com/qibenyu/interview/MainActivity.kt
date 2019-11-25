@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         viewPager.offscreenPageLimit = 10
         slidingTab.setViewPager(viewPager)
         viewPager.currentItem = 0
+
+        viewPager.currentItem = currentViewPagerItem
     }
 
     override fun onBackPressed() {
@@ -106,7 +108,7 @@ class MainAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragm
         if (fragments[position] == null) {
             when (position) {
                 0 -> fragments[position] = UIListFragment.newInstance(uiList)
-                1 -> fragments[position] = SkillListFragment.newInstance(algorithmMap)
+                1 -> fragments[position] = AlgorithmFragment.newInstance(algorithmMap)
                 2 -> fragments[position] = SkillListFragment.newInstance(frameworkMap)
                 3 -> fragments[position] = SkillListFragment.newInstance(architectureMap)
                 4 -> fragments[position] = SkillListFragment.newInstance(exploreMap)

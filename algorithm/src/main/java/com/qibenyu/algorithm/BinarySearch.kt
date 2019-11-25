@@ -3,24 +3,40 @@ package com.qibenyu.algorithm
 
 /**
  */
-fun binarySearch(array: IntArray, target: Int): Int {
+class BinarySearch : IAlgorithm {
 
 
-    var lo = 0
-    var hi = array.size - 1
+    private fun binarySearch(array: IntArray, target: Int): Int {
 
-    while (lo <= hi) {
+        var lo = 0
+        var hi = array.size - 1
 
-        var mid = lo + (hi - lo) / 2
+        while (lo <= hi) {
 
-        println("mid = $mid")
-        when {
-            target > array[mid] -> lo = mid + 1
-            target < array[mid] -> hi = mid - 1
-            else -> return mid
+            var mid = lo + (hi - lo) / 2
+
+            println("mid = $mid")
+            when {
+                target > array[mid] -> lo = mid + 1
+                target < array[mid] -> hi = mid - 1
+                else -> return mid
+            }
         }
+
+        return -1
+
     }
 
-    return -1
+    override fun problem(): String {
+        return "二分查找"
+    }
 
+    override fun condition(): String {
+        return "数组"
+    }
+
+    override fun anwser(): String {
+        return binarySearch(intArrayOf(1, 2, 3, 4, 5, 6), 6).toString()
+    }
 }
+

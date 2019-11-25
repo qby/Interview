@@ -105,12 +105,6 @@ public class FlowLayout extends ViewGroup implements IShowable {
     @Override
     public void bind(@NotNull ViewGroup viewGroup) {
         ExtenisonsKt.bind2ViewGroup(this, viewGroup);
-
-        View view = new View(getContext());
-        view.setLayoutParams(new LayoutParams(200,200));
-        view.setBackgroundColor(Color.BLACK);
-        viewGroup.addView(view);
-
     }
 
     @Override
