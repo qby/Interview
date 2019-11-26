@@ -64,7 +64,8 @@ class UIListFragment : Fragment() {
         }
     }
 
-    inner class UIAdapter(private val data: List<Class<out IShowable>>) : RecyclerView.Adapter<ItemViewHolder>() {
+    inner class UIAdapter(private val data: List<Class<out IShowable>>) :
+        RecyclerView.Adapter<ItemViewHolder>() {
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ItemViewHolder {
             val view = LayoutInflater.from(context)
@@ -84,16 +85,28 @@ class UIListFragment : Fragment() {
     inner class ItemViewHolder(containerView: View?) : RecyclerView.ViewHolder(containerView!!) {
 
         fun bindItem(position: Int, clazz: Class<out IShowable>) {
-            Log.d("qibenyu", "class canonicalName = ${clazz.canonicalName} , simpleName = ${clazz.simpleName} , name = ${clazz.name}")
+            Log.d(
+                "qibenyu",
+                "class canonicalName = ${clazz.canonicalName} , simpleName = ${clazz.simpleName} , name = ${clazz.name}"
+            )
 
             with(itemView) {
                 itemSkill.text = clazz.simpleName
                 setOnClickListener {
-                    val intent = Intent(context, UIShowActivity::class.java)
-                    intent.putExtra("UI_SHOW", clazz.name)
-                    context?.startActivity(intent)
+                    openItem(clazz)
                 }
+
             }
+
+            if (openItem == clazz) {
+                openItem(clazz)
+            }
+        }
+
+        fun openItem(clazz: Class<out IShowable>) {
+            val intent = Intent(context, UIShowActivity::class.java)
+            intent.putExtra("UI_SHOW", clazz.name)
+            context?.startActivity(intent)
 
         }
     }

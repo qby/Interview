@@ -96,12 +96,11 @@ class AlgorithmFragment : Fragment() {
                 setOnClickListener {
                     open(clazz)
                 }
-
-                if (clazz == openItem) {
-                    open(clazz)
-                }
             }
 
+            if (clazz == openItem) {
+                open(clazz)
+            }
         }
 
         private fun open(clazz: Class<out IAlgorithm>) {
