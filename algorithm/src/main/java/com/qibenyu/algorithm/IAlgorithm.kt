@@ -5,15 +5,12 @@ interface IAlgorithm {
 
     fun problem(): String
 
-    fun condition(): String {
-       return ""
-    }
-
-    fun answer(): String {
-        return ""
-    }
+    fun condition(): String
 
     fun thought(): String {
         return ""
     }
+
+    fun answer(): String
+
 }

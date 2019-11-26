@@ -97,7 +97,7 @@ class AlgorithmFragment : Fragment() {
                     open(clazz)
                 }
 
-                if (position == openItem) {
+                if (clazz == openItem) {
                     open(clazz)
                 }
             }

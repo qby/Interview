@@ -1,10 +1,7 @@
 package com.qibenyu.interview
 
 import android.app.Activity
-import com.qibenyu.algorithm.AlgorithmActivity
-import com.qibenyu.algorithm.BinarySearch
-import com.qibenyu.algorithm.IAlgorithm
-import com.qibenyu.algorithm.IntReverse
+import com.qibenyu.algorithm.*
 import com.qibenyu.architecture.jetpack.JetpackActivity
 import com.qibenyu.framework.HandlerActivity
 import com.qibenyu.ui.*
@@ -12,7 +9,7 @@ import com.qibenyu.ui.flow.FlowLayout
 
 
 const val currentViewPagerItem = 1
-const val openItem = 1
+val openItem = MinimumTimeVisitingAllPoints::class.java
 
 var uiList = arrayListOf<Class<out IShowable>>(
     Dashboard::class.java,
@@ -30,7 +27,9 @@ var frameworkMap = hashMapOf<String, Class<out Activity>>(
 
 var algorithmMap = arrayListOf(
     BinarySearch::class.java,
-    IntReverse::class.java
+    IntReverse::class.java,
+    FirstUniqueCharacterInString::class.java,
+    MinimumTimeVisitingAllPoints::class.java
 )
 
 
