@@ -9,7 +9,7 @@ import com.qibenyu.ui.flow.FlowLayout
 
 
 const val currentViewPagerItem = 1
-val openItem = MinimumTimeVisitingAllPoints::class.java
+val openItem = null//QuickSort::class.java
 
 var uiList = arrayListOf<Class<out IShowable>>(
     Dashboard::class.java,
@@ -29,7 +29,8 @@ var algorithmMap = arrayListOf(
     BinarySearch::class.java,
     IntReverse::class.java,
     FirstUniqueCharacterInString::class.java,
-    MinimumTimeVisitingAllPoints::class.java
+    MinimumTimeVisitingAllPoints::class.java,
+    QuickSort::class.java
 )
 
 
