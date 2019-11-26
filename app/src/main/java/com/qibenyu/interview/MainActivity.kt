@@ -109,11 +109,11 @@ class MainAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragm
             when (position) {
                 0 -> fragments[position] = UIListFragment.newInstance(uiList)
                 1 -> fragments[position] = AlgorithmFragment.newInstance(algorithmMap)
-                2 -> fragments[position] = SkillListFragment.newInstance(frameworkMap)
-                3 -> fragments[position] = SkillListFragment.newInstance(architectureMap)
-                4 -> fragments[position] = SkillListFragment.newInstance(exploreMap)
-                5 -> fragments[position] = SkillListFragment.newInstance(summaryMap)
-                6 -> fragments[position] = SkillListFragment.newInstance(patternMap)
+                2 -> fragments[position] = BlogListFragment.newInstance(patternMap)
+                3 -> fragments[position] = SkillListFragment.newInstance(frameworkMap)
+                4 -> fragments[position] = SkillListFragment.newInstance(architectureMap)
+                5 -> fragments[position] = SkillListFragment.newInstance(exploreMap)
+                6 -> fragments[position] = SkillListFragment.newInstance(summaryMap)
             }
         }
         return fragments[position]!!

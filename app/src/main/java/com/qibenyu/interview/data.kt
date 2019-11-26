@@ -19,7 +19,9 @@ var uiList = arrayListOf<Class<out IShowable>>(
     FlowLayout::class.java
 )
 
-var patternMap = hashMapOf<String, Class<out Activity>>()
+var patternMap = hashMapOf(
+    "Flutter State Management" to R.raw.flutter_state
+)
 
 var frameworkMap = hashMapOf<String, Class<out Activity>>(
     "Handler" to HandlerActivity::class.java

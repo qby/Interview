@@ -40,4 +40,5 @@ dependencies {
     implementation project(":algorithm")
     implementation project(":architecture")
     implementation project(":framework")
+    implementation project(":blog")
 }

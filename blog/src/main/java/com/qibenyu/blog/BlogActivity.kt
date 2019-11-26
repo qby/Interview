@@ -11,7 +11,10 @@ class BlogActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blog)
-        val input = resources.openRawResource(R.raw.flutter_state)
+
+        val blogId = intent.getIntExtra("blogId", R.raw.flutter_state)
+
+        val input = resources.openRawResource(blogId)
 
         val html = Markdown4jProcessor().process(input)
 
