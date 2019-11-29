@@ -3,6 +3,7 @@ package com.qibenyu.interview
 import android.app.Activity
 import com.qibenyu.algorithm.*
 import com.qibenyu.architecture.jetpack.JetpackActivity
+import com.qibenyu.explore.WindowManagerActivity
 import com.qibenyu.ui.*
 import com.qibenyu.ui.flow.FlowLayout
 
@@ -35,5 +36,7 @@ var architectureMap = hashMapOf<String, Class<out Activity>>(
     "Jetpack" to JetpackActivity::class.java
 )
 
-var exploreMap = hashMapOf<String, Class<out Activity>>()
+var exploreMap = hashMapOf<String, Class<out Activity>>(
+    "Window Manager" to WindowManagerActivity::class.java
+)
 

@@ -41,4 +41,5 @@ dependencies {
     implementation project(":architecture")
     implementation project(":framework")
     implementation project(":blog")
+    implementation project(":explore")
 }
