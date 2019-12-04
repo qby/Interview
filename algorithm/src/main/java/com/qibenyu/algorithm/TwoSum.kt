@@ -1,5 +1,7 @@
 package com.qibenyu.algorithm
 
+import com.qibenyu.base.print
+
 /**
  * Two Sum
  *  Example:
@@ -8,27 +10,37 @@ package com.qibenyu.algorithm
  *  return [0, 1].
  */
 
-fun twoSum(array: IntArray, target: Int): IntArray {
+class TwoSum : IAlgorithm {
+    override fun problem(): String {
+        return "Given nums = 2, 7, 11, 15, target = 9,\n" +
+                "Because nums[0] + nums[1] = 2 + 7 = 9,\n" +
+                "return [0, 1]."
+    }
 
-    /*
-    for (i in array.indices) {
+    override fun condition(): String {
+        return "2, 7, 11, 15, target = 9"
+    }
 
-        for (j in array.indices) {
-            if (array[i] + array[j] == target) {
-                return arrayOf(i, j)
+    override fun answer(): String {
+        val array = twoSum(intArrayOf(2, 7, 11, 15), 9)
+
+
+        return array.print()
+    }
+
+    private fun twoSum(array: IntArray, target: Int): IntArray {
+
+        val map = mutableMapOf<Int, Int>()
+
+        for (i in array.indices) {
+            if (map.containsKey(array[i])) {
+                return intArrayOf(map[array[i]]!!, i)
             }
-        }
+            map[target - array[i]] = i
 
-    }
-    return null
-    */
-
-    val map = mutableMapOf<Int, Int>()
-    for (i in array.indices) {
-        if (map.containsKey(array[i])) {
-            return intArrayOf(map[array[i]]!!, i)
         }
-        map[target - array[i]] = i
+        return intArrayOf()
     }
-    return intArrayOf()
+
 }
+

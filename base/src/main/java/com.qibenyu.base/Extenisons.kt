@@ -21,3 +21,15 @@ fun View.bind2ViewGroup(viewGroup: ViewGroup) {
     )
     viewGroup.addView(this)
 }
+
+fun IntArray.print(): String {
+
+    val sb = StringBuilder()
+    for (i in this.indices) {
+        sb.append(this[i])
+
+        if (i != this.size - 1) sb.append(", ")
+    }
+    return sb.toString()
+
+}
