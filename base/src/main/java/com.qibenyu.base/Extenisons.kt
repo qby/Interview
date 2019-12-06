@@ -5,6 +5,7 @@ import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 
+const val TAG: String = "BaronQi"
 
 fun dp2px(dp: Float): Float {
     return TypedValue.applyDimension(

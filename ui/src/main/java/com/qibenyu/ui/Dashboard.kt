@@ -2,7 +2,6 @@ package com.qibenyu.ui
 
 import android.content.Context
 import android.graphics.*
-import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import com.qibenyu.base.bind2ViewGroup
@@ -17,7 +16,7 @@ class Dashboard(context: Context) : View(context), IShowable {
     private lateinit var dash: Path
     private lateinit var path: Path
 
-    lateinit var effect: PathDashPathEffect
+    private lateinit var effect: PathDashPathEffect
 
     companion object {
         val RADIUS = dp2px(150f)
@@ -99,6 +98,7 @@ class Dashboard(context: Context) : View(context), IShowable {
     }
 
     override fun show() {
+
     }
 
     override fun bind(viewGroup: ViewGroup) {

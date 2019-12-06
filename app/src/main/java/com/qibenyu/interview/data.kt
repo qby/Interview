@@ -9,14 +9,15 @@ import com.qibenyu.ui.flow.FlowLayout
 
 
 const val currentViewPagerItem = 1
-val openItem = PalindromeNumber::class.java //TwoSum::class.java//QuickSort::class.java
+val openItem = ReverseLinkedList::class.java//PalindromeNumber::class.java //TwoSum::class.java//QuickSort::class.java
 
 var uiList = arrayListOf<Class<out IShowable>>(
     Dashboard::class.java,
     MaterialEditText::class.java,
     PieChart::class.java,
     AvatarView::class.java,
-    FlowLayout::class.java
+    FlowLayout::class.java,
+    MuahView::class.java
 )
 
 var patternMap = hashMapOf(
@@ -30,7 +31,8 @@ var algorithmMap = arrayListOf(
     MinimumTimeVisitingAllPoints::class.java,
     QuickSort::class.java,
     TwoSum::class.java,
-    PalindromeNumber::class.java
+    PalindromeNumber::class.java,
+    ReverseLinkedList::class.java
 )
 
 

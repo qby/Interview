@@ -1,7 +1,6 @@
 package com.qibenyu.ui
 
 import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
