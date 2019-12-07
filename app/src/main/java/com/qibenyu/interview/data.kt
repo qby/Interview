@@ -41,6 +41,6 @@ var architectureMap = hashMapOf<String, Class<out Activity>>(
 )
 
 var exploreMap = hashMapOf<String, Class<out Activity>>(
-    "Window Manager" to WindowManagerActivity::class.java
+//    "Window Manager" to WindowManagerActivity::class.java
 )
 
