@@ -9,7 +9,7 @@ import com.qibenyu.ui.flow.FlowLayout
 
 
 const val currentViewPagerItem = 1
-val openItem = ReverseLinkedList::class.java//PalindromeNumber::class.java //TwoSum::class.java//QuickSort::class.java
+val openItem = RomanNumber::class.java//PalindromeNumber::class.java //TwoSum::class.java//QuickSort::class.java
 
 var uiList = arrayListOf<Class<out IShowable>>(
     Dashboard::class.java,
@@ -32,7 +32,8 @@ var algorithmMap = arrayListOf(
     QuickSort::class.java,
     TwoSum::class.java,
     PalindromeNumber::class.java,
-    ReverseLinkedList::class.java
+    ReverseLinkedList::class.java,
+    RomanNumber::class.java
 )
 
 

@@ -31,6 +31,12 @@ class ReverseLinkedList : IAlgorithm {
         return node.toString()
     }
 
+    override fun thought(): String {
+        return "使用快慢指针获取链表的中间数，slow指针每次遍历只走一步，fast指针每次遍历走两步，\n" +
+                "当fast== null 或者fast.next == null的时候链表走到最后，此时slow指针位于链表的中间 \n" +
+                "在遍历的同时反转前半部分的链表，反转后与后半部分进行比较"
+    }
+
 
     private fun getReverseNode(node: Node?): Boolean {
 
@@ -39,7 +45,7 @@ class ReverseLinkedList : IAlgorithm {
         var nextNode: Node?
         var preNode: Node? = null
 
-        while (fast != null && fast.next != null) {
+        while (fast?.next != null) {
 
             nextNode = slow?.next
 
