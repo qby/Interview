@@ -2,7 +2,6 @@ package com.qibenyu.interview
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,12 +18,12 @@ class AlgorithmFragment : Fragment() {
 
     private lateinit var mRecyclerView: RecyclerView
 
-    private lateinit var mAlgorithmMap: List<Class<out IAlgorithm>>
+    private lateinit var mAlgorithmMap: Map<String, Class<out IAlgorithm>>
 
     companion object {
-        fun newInstance(list: ArrayList<Class<out IAlgorithm>>): AlgorithmFragment {
+        fun newInstance(map: HashMap<String, Class<out IAlgorithm>>): AlgorithmFragment {
             val bundle = Bundle()
-            bundle.putSerializable("ALGORITHM", list)
+            bundle.putSerializable("ALGORITHM", map)
             val fragment = AlgorithmFragment()
             fragment.arguments = bundle
             return fragment
@@ -42,9 +41,9 @@ class AlgorithmFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mAlgorithmMap = arguments?.get("ALGORITHM") as List<Class<out IAlgorithm>>
-        val data: ArrayList<Class<out IAlgorithm>> = arrayListOf()
-        data.addAll(mAlgorithmMap)
+        mAlgorithmMap = arguments?.get("ALGORITHM") as Map<String, Class<out IAlgorithm>>
+        val data: ArrayList<String> = arrayListOf()
+        data.addAll(mAlgorithmMap.keys)
 
         mRecyclerView = view.findViewById(R.id.recycler_view)
         with(mRecyclerView) {
@@ -65,7 +64,7 @@ class AlgorithmFragment : Fragment() {
         }
     }
 
-    inner class AlgorithmAdapter(private val data: List<Class<out IAlgorithm>>) :
+    inner class AlgorithmAdapter(private val data: List<String>) :
         RecyclerView.Adapter<ItemViewHolder>() {
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ItemViewHolder {
@@ -85,16 +84,13 @@ class AlgorithmFragment : Fragment() {
 
     inner class ItemViewHolder(containerView: View?) : RecyclerView.ViewHolder(containerView!!) {
 
-        fun bindItem(position: Int, clazz: Class<out IAlgorithm>) {
-            Log.d(
-                "qibenyu",
-                "class canonicalName = ${clazz.canonicalName} , simpleName = ${clazz.simpleName} , name = ${clazz.name}"
-            )
+        fun bindItem(position: Int, algorithm: String) {
 
+            val clazz = mAlgorithmMap[algorithm]
             with(itemView) {
-                itemSkill.text = clazz.simpleName
+                itemSkill.text = algorithm
                 setOnClickListener {
-                    open(clazz)
+                    open(clazz!!)
                 }
             }
 

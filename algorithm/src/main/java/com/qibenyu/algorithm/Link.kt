@@ -2,8 +2,8 @@ package com.qibenyu.algorithm
 
 data class Node(val value: Int, var next: Node? = null)
 
-fun print(node: Node?): String {
-    var head = node
+fun Node?.print(): String {
+    var head = this
     val sb = StringBuilder()
     while (head != null) {
 

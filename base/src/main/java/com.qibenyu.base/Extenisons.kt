@@ -34,3 +34,9 @@ fun IntArray.print(): String {
     return sb.toString()
 
 }
+
+fun IntArray.exch(firstIndex: Int, secondIndex: Int) {
+    val t = this[firstIndex]
+    this[firstIndex] = this[secondIndex]
+    this[secondIndex] = t
+}

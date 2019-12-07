@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.item_skill_name.view.*
 
 class SkillListFragment : Fragment() {
 
-    lateinit var mRecyclerView: RecyclerView
+    private lateinit var mRecyclerView: RecyclerView
 
     companion object {
         fun newInstance(skills: HashMap<String, Class<out Activity>>): SkillListFragment {

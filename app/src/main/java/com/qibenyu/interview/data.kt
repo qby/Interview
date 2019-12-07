@@ -9,7 +9,8 @@ import com.qibenyu.ui.flow.FlowLayout
 
 
 const val currentViewPagerItem = 1
-val openItem = RomanNumber::class.java//PalindromeNumber::class.java //TwoSum::class.java//QuickSort::class.java
+val openItem =
+    QuickSort::class.java//PalindromeNumber::class.java //TwoSum::class.java//QuickSort::class.java
 
 var uiList = arrayListOf<Class<out IShowable>>(
     Dashboard::class.java,
@@ -24,16 +25,16 @@ var patternMap = hashMapOf(
     "Flutter State Management" to R.raw.flutter_state
 )
 
-var algorithmMap = arrayListOf(
-    BinarySearch::class.java,
-    IntReverse::class.java,
-    FirstUniqueCharacterInString::class.java,
-    MinimumTimeVisitingAllPoints::class.java,
-    QuickSort::class.java,
-    TwoSum::class.java,
-    PalindromeNumber::class.java,
-    ReverseLinkedList::class.java,
-    RomanNumber::class.java
+var algorithmMap = hashMapOf(
+    "二分查找" to BinarySearch::class.java,
+    "整数反转" to IntReverse::class.java,
+    "字符串第一个不重复的字符" to FirstUniqueCharacterInString::class.java,
+    "路径最短时间" to MinimumTimeVisitingAllPoints::class.java,
+    "排序" to QuickSort::class.java,
+    "两数求和" to TwoSum::class.java,
+    "回文数" to PalindromeNumber::class.java,
+    "回文链表" to ReverseLinkedList::class.java,
+    "罗马数" to RomanNumber::class.java
 )
 
 
