@@ -34,7 +34,9 @@ var algorithmMap = hashMapOf(
     "两数求和" to TwoSum::class.java,
     "回文数" to PalindromeNumber::class.java,
     "回文链表" to ReverseLinkedList::class.java,
-    "罗马数" to RomanNumber::class.java
+    "罗马数" to RomanNumber::class.java,
+    "链表相交" to IntersectionTwoLinked::class.java,
+    "删除数组中的重复项" to RemoveDuplicates::class.java
 )
 
 
