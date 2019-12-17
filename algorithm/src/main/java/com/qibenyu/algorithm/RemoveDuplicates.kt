@@ -1,32 +1,38 @@
 package com.qibenyu.algorithm
 
+import com.qibenyu.base.print
+
 
 /**
  * 删除排序数组中的重复项
  */
 class RemoveDuplicates : IAlgorithm {
     override fun problem(): String {
-        return ""
+        return "删除排序数组中的重复项"
     }
 
     override fun condition(): String {
-        return ""
+        return "[1,1,2,2,2,3,3,4,5,5,5,5,5,5,5,6]"
     }
 
     override fun answer(): String {
-        return ""
+        val array = intArrayOf(1, 1, 2, 2, 2, 3, 3, 4, 5, 5, 5, 5, 5, 5, 5, 6)
+        removeDuplicates(array)
+        return array.print()
     }
 
     private fun removeDuplicates(array: IntArray) {
 
-        var pre = array[0]
+        var preIndex = 0
         for (i in 1 until array.size) {
 
-            if (pre == array[i]) {
-
+            if (array[preIndex] == array[i]) {
+                continue
             }
 
-            pre = array[i]
+            array[preIndex + 1] = array[i]
+            preIndex ++
+
         }
     }
 }
