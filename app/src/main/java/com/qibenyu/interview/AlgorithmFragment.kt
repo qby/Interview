@@ -94,9 +94,9 @@ class AlgorithmFragment : Fragment() {
                 }
             }
 
-            if (clazz == openItem) {
-                open(clazz)
-            }
+//            if (clazz == openItem) {
+//                open(openItem)
+//            }
         }
 
         private fun open(clazz: Class<out IAlgorithm>) {

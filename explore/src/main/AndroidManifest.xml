@@ -1,10 +1,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.qibenyu.explore" >
+        package="com.qibenyu.explore">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <application >
+    <application>
 
         <activity android:name="com.qibenyu.explore.WindowManagerActivity" />
+
+        <activity android:name="com.qibenyu.explore.SetupVivoActivity" />
+
+        <activity android:name="com.qibenyu.explore.service.NotificationActivity" />
+
+        <service android:name="com.qibenyu.explore.service.NotificationService" />
+        <service android:name="com.qibenyu.explore.service.EmptyService" android:process=":work"/>
+        <service android:name="com.qibenyu.explore.service.Empty2Service" />
+
+        <activity android:name="com.qibenyu.explore.GlideActivity" />
+
     </application>
 </manifest>
