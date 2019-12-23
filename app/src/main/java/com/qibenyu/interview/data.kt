@@ -40,7 +40,8 @@ var algorithmMap = hashMapOf(
     "罗马数" to RomanNumber::class.java,
     "链表相交" to IntersectionTwoLinked::class.java,
     "删除数组中的重复项" to RemoveDuplicates::class.java,
-    "删除单链表中的倒数第N个元素" to RemoveNthFromEnd::class.java
+    "删除单链表中的倒数第N个元素" to RemoveNthFromEnd::class.java,
+    "HashMap" to HashMap::class.java
 )
 
 
