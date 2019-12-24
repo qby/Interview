@@ -122,19 +122,23 @@ public class HashMap<K, V> implements IAlgorithm {
 
         HashMap<String, Student> map = new HashMap<>(8);
 
-        for (int i = 0; i < 4; i++) {
-
-            map.put("i" + i, new Student("BaronQi" + i, i));
-        }
-
+//        for (int i = 0; i < 4; i++) {
+//
+//            map.put("i" + i, new Student("BaronQi" + i, i));
+//        }
+//
         StringBuilder builder = new StringBuilder();
+//
+//        for (int i = 0; i < 4; i++) {
+//
+//            Student s = map.get("i" + i);
+//            builder.append(s.name).append(" , ").append(s.age).append("\n");
+//        }
 
-        for (int i = 0; i < 4; i++) {
-
-            Student s = map.get("i" + i);
-            builder.append(s.name).append(" , ").append(s.age).append("\n");
-        }
-
+        map.put("Baron" ,new Student("zhang",10));
+        map.put("Baron",new Student("li",20));
+        Student s = map.get("Baron");
+        builder.append(s);
         return builder.toString();
     }
 
