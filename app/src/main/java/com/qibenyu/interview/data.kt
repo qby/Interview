@@ -3,10 +3,8 @@ package com.qibenyu.interview
 import android.app.Activity
 import com.qibenyu.algorithm.*
 import com.qibenyu.architecture.jetpack.JetpackActivity
-import com.qibenyu.explore.GlideActivity
+import com.qibenyu.explore.*
 import com.qibenyu.explore.service.NotificationActivity
-import com.qibenyu.explore.SetupVivoActivity
-import com.qibenyu.explore.WindowManagerActivity
 import com.qibenyu.ui.*
 import com.qibenyu.ui.flow.FlowLayout
 
@@ -54,7 +52,8 @@ var exploreMap = hashMapOf<String, Class<out Activity>>(
     "Window Manager" to WindowManagerActivity::class.java,
     "Vivo" to SetupVivoActivity::class.java,
     "foregroundService" to NotificationActivity::class.java,
-    "Glide" to GlideActivity::class.java
+    "Glide" to GlideActivity::class.java,
+    "Handler" to HandlerActivity::class.java
 
 )
 
