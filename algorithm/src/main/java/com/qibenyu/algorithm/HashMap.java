@@ -19,7 +19,7 @@ public class HashMap<K, V> implements IAlgorithm {
     private int size = 0;
 
     private int capacity;
-
+    private int threshold = 8;
     private float loadFactor = 0.75f;
 
     public HashMap() {
@@ -37,18 +37,15 @@ public class HashMap<K, V> implements IAlgorithm {
 
     public void put(K key, V value) {
 
-        if (capacity * loadFactor > size) {
-            resize();
-        }
-
         int hash = hash(key);
 
-        int index = getIndex(hash);
+        int index = getIndex(hash, table.length);
 
         MapEntry e = table[index];
 
         while (e != null) {
-            if (e.hash == hash && (e.key == key || e.key.equals(key))) {
+            Object o;
+            if (e.hash == hash && ((o = e.key) == key || o.equals(key))) {
                 e.value = value;
                 return;
             }
@@ -62,12 +59,47 @@ public class HashMap<K, V> implements IAlgorithm {
 
     }
 
-    private void resize() {
+    private void resize(int newCapcity) {
+        MapEntry<K, V>[] newTable = new MapEntry[newCapcity];
 
+        transform(newTable);
+
+        table = newTable;
+        threshold = (int) (newCapcity * loadFactor);
+
+
+    }
+
+    private void transform(MapEntry<K, V>[] newTable) {
+
+        for (MapEntry<K, V> entry : table) {
+
+            while (entry != null) {
+                MapEntry<K, V> next = entry.next;
+                int index = getIndex(entry.hash, newTable.length);
+
+                entry.next = newTable[index];
+
+                newTable[index] = entry;
+
+                entry = next;
+            }
+        }
     }
 
     private void addEntry(K key, V value, int hash, int index) {
 
+        if (size > capacity && table[index] != null) {
+            resize(table.length << 1);
+
+            index = getIndex(hash, table.length);
+        }
+
+        createEntry(key, value, hash, index);
+
+    }
+
+    private void createEntry(K key, V value, int hash, int index) {
         MapEntry<K, V> entry = new MapEntry<>();
         entry.key = key;
         entry.value = value;
@@ -77,10 +109,11 @@ public class HashMap<K, V> implements IAlgorithm {
         table[index] = entry;
         entry.next = e;
 
+        size++;
     }
 
-    private int getIndex(int hash) {
-        return hash & capacity - 1;
+    private int getIndex(int hash, int length) {
+        return hash & length - 1;
     }
 
     private int hash(K key) {
@@ -91,7 +124,7 @@ public class HashMap<K, V> implements IAlgorithm {
 
         int hash = hash(key);
 
-        int index = getIndex(hash);
+        int index = getIndex(hash, table.length);
 
         MapEntry<K, V> e = table[index];
 
@@ -135,8 +168,8 @@ public class HashMap<K, V> implements IAlgorithm {
 //            builder.append(s.name).append(" , ").append(s.age).append("\n");
 //        }
 
-        map.put("Baron" ,new Student("zhang",10));
-        map.put("Baron",new Student("li",20));
+        map.put("Baron", new Student("zhang", 10));
+        map.put("Baron", new Student("li", 20));
         Student s = map.get("Baron");
         builder.append(s);
         return builder.toString();
