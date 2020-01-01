@@ -4,7 +4,7 @@ import com.qibenyu.base.ExtenisonsKt;
 
 import org.jetbrains.annotations.NotNull;
 
-public class QuickSort implements IAlgorithm {
+public class Sorts implements IAlgorithm {
     @NotNull
     @Override
     public String problem() {
