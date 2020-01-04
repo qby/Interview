@@ -23,6 +23,7 @@ var uiList = arrayListOf<Class<out IShowable>>(
 )
 
 var patternMap = hashMapOf(
+    "OKHttp" to R.raw.okhttp,
     "Flutter State Management" to R.raw.flutter_state
 )
 
@@ -55,7 +56,8 @@ var exploreMap = hashMapOf<String, Class<out Activity>>(
     "Vivo" to SetupVivoActivity::class.java,
     "foregroundService" to NotificationActivity::class.java,
     "Glide" to GlideActivity::class.java,
-    "Handler" to HandlerActivity::class.java
+    "Handler" to HandlerActivity::class.java,
+    "LeakCanary" to LeakCanaryActivity::class.java
 
 )
 
