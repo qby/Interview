@@ -6,7 +6,7 @@ import java.lang.StringBuilder
 data class TreeNode(val value: String, var left: TreeNode? = null, var right: TreeNode? = null)
 
 fun TreeNode?.serialized(): String {
-    val sb = StringBuilder();
+    val sb = StringBuilder()
     serialized(this, sb)
     return sb.toString()
 }
@@ -34,7 +34,7 @@ private fun deserialized(pointer: Pointer, treeSerialized: String): TreeNode? {
     }
 
     val treeNode = TreeNode(treeSerialized[pointer.index].toString())
-    pointer.index++;
+    pointer.index++
     treeNode.left = deserialized(pointer, treeSerialized)
     treeNode.right = deserialized(pointer, treeSerialized)
 

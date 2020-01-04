@@ -18,6 +18,7 @@
         <activity android:name=".HandlerActivity" />
 
         <activity android:name="com.qibenyu.explore.GlideActivity" />
+        <activity android:name=".LeakCanaryActivity" />
 
     </application>
 </manifest>
