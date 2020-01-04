@@ -41,7 +41,8 @@ var algorithmMap = hashMapOf(
     "删除单链表中的倒数第N个元素" to RemoveNthFromEnd::class.java,
     "HashMap" to HashMap::class.java,
     "链表相交" to IntersectionTwoLinked::class.java,
-    "优先级队列" to PriorityQueue::class.java
+    "优先级队列" to PriorityQueue::class.java,
+    "二叉树的序列化与反序列化" to TreeSerialized::class.java
 )
 
 

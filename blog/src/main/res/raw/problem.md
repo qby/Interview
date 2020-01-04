@@ -81,7 +81,7 @@ LruCache<String,Bitmap> cache = new  LruCache<String,Bitmap>(4*1024* 1024) {
 ### HashMap
 1. 查找时间复杂度由On 变成 O1 通过 `Hash & lenght - 1` 获取 Index
 2. 如果Key位null放入0个位置
-
+3. 在需要扩容时，计算了Key的index 所在的数组刚好没有值，则会直接加入table[index]暂时不会扩容
 
 ### ConcorrentHashMap
 ### LinkedHashMap
