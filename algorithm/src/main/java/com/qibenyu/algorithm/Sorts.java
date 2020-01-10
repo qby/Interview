@@ -34,7 +34,9 @@ public class Sorts implements IAlgorithm {
 //        quickSort(array, 0, array.length - 1);
 //        selectionSort(array);
 //        insertSort(array);
-        shellSort(array);
+//        shellSort(array);
+        aux = new int[array.length];
+        mergeSort(array, 0, array.length - 1);
         return ExtenisonsKt.print(array);
     }
 
@@ -112,6 +114,34 @@ public class Sorts implements IAlgorithm {
 
         quickSort(array, start, i - 1);
         quickSort(array, j + 1, end);
+    }
+
+    private int[] aux = null;
+
+    private void mergeSort(int[] array, int lo, int hi) {
+
+        if (hi <= lo) {
+            return;
+        }
+        int mid = (hi + lo) / 2;
+
+        mergeSort(array, lo, mid);
+        mergeSort(array, mid + 1, hi);
+        merge(array, lo, mid, hi);
+    }
+
+    private void merge(int[] array, int lo, int mid, int hi) {
+        int i = lo;
+        int j = mid + 1;
+        for (int k = lo; k <= hi; k++) {
+            aux[k] = array[k];
+        }
+        for (int k = lo; k <= hi; k++) {
+            if (i > mid) array[k] = aux[j++];
+            else if (j > hi) array[k] = aux[i++];
+            else if (aux[j] < aux[i]) array[k] = aux[j++];
+            else array[k] = aux[i++];
+        }
     }
 
 }
