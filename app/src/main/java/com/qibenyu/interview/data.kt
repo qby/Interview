@@ -44,7 +44,8 @@ var algorithmMap = hashMapOf(
     "链表相交" to IntersectionTwoLinked::class.java,
     "优先级队列" to PriorityQueue::class.java,
     "二叉树的序列化与反序列化" to TreeSerialized::class.java,
-    "镜像二叉树" to MirrorTree::class.java
+    "镜像二叉树" to MirrorTree::class.java,
+    "链表排序" to LinkedSorted::class.java
 )
 
 
