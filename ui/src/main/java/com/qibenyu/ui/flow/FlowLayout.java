@@ -38,6 +38,12 @@ public class FlowLayout extends ViewGroup implements IShowable {
 
     List<Rect> rectList = new ArrayList<>();
 
+    //取消预按下的时长100ms
+    @Override
+    public boolean shouldDelayChildPressedState() {
+        return false;
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
