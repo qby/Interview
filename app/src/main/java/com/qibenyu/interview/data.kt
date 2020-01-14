@@ -19,7 +19,8 @@ var uiList = arrayListOf<Class<out IShowable>>(
     PieChart::class.java,
     AvatarView::class.java,
     FlowLayout::class.java,
-    MuahView::class.java
+    MuahView::class.java,
+    StepView::class.java
 )
 
 var patternMap = hashMapOf(

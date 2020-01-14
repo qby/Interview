@@ -26,6 +26,7 @@ fun String.deserialized(): TreeNode? {
 }
 
 data class Pointer(var index: Int = 0)
+
 private fun deserialized(pointer: Pointer, treeSerialized: String): TreeNode? {
 
     if (treeSerialized[pointer.index] == '#') {
@@ -40,5 +41,11 @@ private fun deserialized(pointer: Pointer, treeSerialized: String): TreeNode? {
 
     return treeNode
 }
+
+fun preOrderTraverse(node: TreeNode) {
+    var root = node
+
+}
+
 
 

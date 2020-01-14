@@ -14,6 +14,10 @@ class TreeSerialized :IAlgorithm {
 
         val root = "ABC##FX###EG##DY##Z##".deserialized()
 
+        if (root != null) {
+            preOrderTraverse(root)
+        }
+
         return root.serialized()
     }
 

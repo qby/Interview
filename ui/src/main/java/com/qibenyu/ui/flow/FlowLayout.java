@@ -61,7 +61,6 @@ public class FlowLayout extends ViewGroup implements IShowable {
                 heightUsed += lineHeight;
                 widthUsed = 0;
                 lineHeight = 0;
-//                measureChildWithMargins(child, widthMeasureSpec, 0, heightMeasureSpec, heightUsed);
             }
 
             Rect rect;

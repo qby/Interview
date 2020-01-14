@@ -8,6 +8,11 @@ public class SortsTest {
 
     @Test
     public void answer() {
+
+        Sorts sorts = new Sorts();
+        String result = sorts.answer();
+
+        System.out.println(result);
 //        String r = longestCommonPrefix(new String[]{"c","c"});
 
         Sorts sorts = new Sorts();

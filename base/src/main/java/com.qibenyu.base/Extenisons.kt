@@ -15,6 +15,14 @@ fun dp2px(dp: Float): Float {
     )
 }
 
+fun Int.dp(): Float {
+    return TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this.toFloat(),
+        Resources.getSystem().displayMetrics
+    )
+}
+
 fun View.bind2ViewGroup(viewGroup: ViewGroup) {
     layoutParams = ViewGroup.LayoutParams(
         ViewGroup.LayoutParams.MATCH_PARENT,
