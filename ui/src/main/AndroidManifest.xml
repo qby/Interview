@@ -3,7 +3,9 @@
         package="com.qibenyu.ui">
 
     <application>
-        <activity android:name=".UIShowActivity" />
+        <activity
+                android:name=".UIShowActivity"
+                android:screenOrientation="portrait" />
     </application>
 
 </manifest>

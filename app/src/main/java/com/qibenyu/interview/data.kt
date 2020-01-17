@@ -9,9 +9,11 @@ import com.qibenyu.ui.*
 import com.qibenyu.ui.flow.FlowLayout
 
 
-const val currentViewPagerItem = 5
+const val currentViewPagerItem = 0
 val openItem =
-    RemoveNthFromEnd::class.java
+//    MultiTouchView::class.java
+//    ScalableImageView::class.java
+    PagerView::class.java
 
 var uiList = arrayListOf<Class<out IShowable>>(
     Dashboard::class.java,
@@ -20,7 +22,10 @@ var uiList = arrayListOf<Class<out IShowable>>(
     AvatarView::class.java,
     FlowLayout::class.java,
     MuahView::class.java,
-    StepView::class.java
+    StepView::class.java,
+    ScalableImageView::class.java,
+    MultiTouchView::class.java,
+    PagerView::class.java
 )
 
 var patternMap = hashMapOf(

@@ -32,15 +32,12 @@ class UIShowActivity : AppCompatActivity() {
             val clazz = Class.forName(viewName)
             val constructor = clazz.getConstructor(Context::class.java)
             val instance = constructor.newInstance(this)
-
             val showable = instance as IShowable
-
             showable.bind(container)
-
             showable.show()
-
         } catch (e: Exception) {
             e.printStackTrace()
+
         }
 
 
