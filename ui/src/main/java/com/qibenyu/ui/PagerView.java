@@ -125,6 +125,7 @@ public class PagerView extends ViewGroup implements IShowable {
                 scrollTo((int) offsetX, 0);
                 break;
             case MotionEvent.ACTION_UP:
+                Log.d(TAG, "onTouchEvent: mMaxFlingVelocity = " + mMaxFlingVelocity);
                 mVelocityTracker.computeCurrentVelocity(1000, mMaxFlingVelocity);
                 float vX = mVelocityTracker.getXVelocity();
                 if (Math.abs(vX) < mMinFlingVelocity) {
@@ -134,6 +135,7 @@ public class PagerView extends ViewGroup implements IShowable {
                         if (dx > 0) {
                             mCurrentPage--;
                         } else {
+                            Log.d(TAG, "onTouchEvent: <");
                             mCurrentPage++;
                         }
                     }
@@ -141,9 +143,18 @@ public class PagerView extends ViewGroup implements IShowable {
                     if (vX > 0) {
                         mCurrentPage--;
                     } else {
+                        Log.d(TAG, "onTouchEvent: >");
                         mCurrentPage++;
                     }
                 }
+
+                if (mCurrentPage > getChildCount() - 1) {
+                    mCurrentPage = getChildCount() - 1;
+                } else if (mCurrentPage < 0) {
+                    mCurrentPage = 0;
+                }
+
+                Log.d(TAG, "onTouchEvent: mcurrentPage = " + mCurrentPage + ", child count = " + getChildCount());
 
                 int scrollDistance = (int) (mCurrentPage * getWidth() + getScaleX());
                 mOverScroller.startScroll(getScrollX(), 0, scrollDistance, 0);
