@@ -125,9 +125,10 @@ public class PagerView extends ViewGroup implements IShowable {
                 scrollTo((int) offsetX, 0);
                 break;
             case MotionEvent.ACTION_UP:
-                Log.d(TAG, "onTouchEvent: mMaxFlingVelocity = " + mMaxFlingVelocity);
+
                 mVelocityTracker.computeCurrentVelocity(1000, mMaxFlingVelocity);
                 float vX = mVelocityTracker.getXVelocity();
+                Log.d(TAG, "onTouchEvent: vx = " + vX + ", min = " + mMinFlingVelocity);
                 if (Math.abs(vX) < mMinFlingVelocity) {
                     float upX = event.getX();
                     float dx = upX - downX;
@@ -135,7 +136,6 @@ public class PagerView extends ViewGroup implements IShowable {
                         if (dx > 0) {
                             mCurrentPage--;
                         } else {
-                            Log.d(TAG, "onTouchEvent: <");
                             mCurrentPage++;
                         }
                     }
@@ -143,7 +143,6 @@ public class PagerView extends ViewGroup implements IShowable {
                     if (vX > 0) {
                         mCurrentPage--;
                     } else {
-                        Log.d(TAG, "onTouchEvent: >");
                         mCurrentPage++;
                     }
                 }
@@ -154,9 +153,7 @@ public class PagerView extends ViewGroup implements IShowable {
                     mCurrentPage = 0;
                 }
 
-                Log.d(TAG, "onTouchEvent: mcurrentPage = " + mCurrentPage + ", child count = " + getChildCount());
-
-                int scrollDistance = (int) (mCurrentPage * getWidth() + getScaleX());
+                int scrollDistance = mCurrentPage * getWidth() - getScrollX();
                 mOverScroller.startScroll(getScrollX(), 0, scrollDistance, 0);
                 postInvalidateOnAnimation();
                 break;
@@ -164,6 +161,11 @@ public class PagerView extends ViewGroup implements IShowable {
         return true;
     }
 
+    public int getCurrentPage() {
+        return mCurrentPage;
+    }
+
+    // 在draw方法中调用, postInvalidateOnAnimation 后自动调用
     @Override
     public void computeScroll() {
         if (mOverScroller.computeScrollOffset()) {
@@ -205,4 +207,5 @@ public class PagerView extends ViewGroup implements IShowable {
             Color.parseColor("#FF5722"),
             Color.parseColor("#795548")
     };
+
 }

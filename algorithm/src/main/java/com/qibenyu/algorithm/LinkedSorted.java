@@ -26,7 +26,7 @@ public class LinkedSorted implements IAlgorithm {
     @NotNull
     @Override
     public String problem() {
-        return null;
+        return "链表排序 时间复杂度O(log n)";
     }
 
     @NotNull
@@ -38,7 +38,7 @@ public class LinkedSorted implements IAlgorithm {
     @NotNull
     @Override
     public String thought() {
-        return null;
+        return "归并排序";
     }
 
     @NotNull
