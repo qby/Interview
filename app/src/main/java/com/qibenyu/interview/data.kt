@@ -7,15 +7,19 @@ import com.qibenyu.explore.*
 import com.qibenyu.explore.service.NotificationActivity
 import com.qibenyu.ui.*
 import com.qibenyu.ui.flow.FlowLayout
+import com.qibenyu.ui.paperkit.PaperKitView
 
 
 const val currentViewPagerItem = 0
 val openItem =
+    PaperKitView::class.java
 //    MultiTouchView::class.java
 //    ScalableImageView::class.java
-    PagerView::class.java
+//    PagerView::class.java
 
 var uiList = arrayListOf<Class<out IShowable>>(
+    PagerView::class.java,
+    PaperKitView::class.java,
     Dashboard::class.java,
     MaterialEditText::class.java,
     PieChart::class.java,
@@ -24,8 +28,7 @@ var uiList = arrayListOf<Class<out IShowable>>(
     MuahView::class.java,
     StepView::class.java,
     ScalableImageView::class.java,
-    MultiTouchView::class.java,
-    PagerView::class.java
+    MultiTouchView::class.java
 )
 
 var patternMap = hashMapOf(
@@ -33,7 +36,7 @@ var patternMap = hashMapOf(
     "Flutter State Management" to R.raw.flutter_state
 )
 
-var algorithmMap = hashMapOf(
+var algorithmMap = linkedMapOf(
     "二分查找" to BinarySearch::class.java,
     "整数反转" to IntReverse::class.java,
     "字符串第一个不重复的字符" to FirstUniqueCharacterInString::class.java,

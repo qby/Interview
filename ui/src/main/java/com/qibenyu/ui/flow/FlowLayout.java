@@ -159,8 +159,6 @@ public class FlowLayout extends ViewGroup implements IShowable {
     private ColoredTextView generateChild() {
         ColoredTextView view = new ColoredTextView(getContext());
         view.setLayoutParams(new MarginLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-        view.setText(provinces.get(random.nextInt(20)));
-
         return view;
     }
 }

@@ -82,6 +82,9 @@ public class PagerView extends ViewGroup implements IShowable {
         switch (ev.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
                 scrolling = false;
+                if (!mOverScroller.isFinished()) {
+                    mOverScroller.abortAnimation();
+                }
                 downX = ev.getX();
                 originalX = offsetX;
                 break;
@@ -110,6 +113,9 @@ public class PagerView extends ViewGroup implements IShowable {
 
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
+                if (!mOverScroller.isFinished()) {
+                    mOverScroller.abortAnimation();
+                }
                 downX = event.getX();
                 originalX = getScrollX();
                 break;

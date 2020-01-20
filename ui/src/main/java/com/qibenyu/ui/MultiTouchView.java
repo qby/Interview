@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 
+import com.qibenyu.ui.util.BitmapUtil;
+
 import org.jetbrains.annotations.NotNull;
 
 public class MultiTouchView extends View implements IShowable {

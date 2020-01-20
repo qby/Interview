@@ -1,15 +1,11 @@
 package com.qibenyu.ui;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -22,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.GestureDetectorCompat;
 
 import com.qibenyu.base.ExtenisonsKt;
+import com.qibenyu.ui.util.BitmapUtil;
 
 import org.jetbrains.annotations.NotNull;
 

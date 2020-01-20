@@ -1,9 +1,10 @@
-package com.qibenyu.ui;
+package com.qibenyu.ui.util;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.qibenyu.ui.R;
 
 
 public class BitmapUtil {

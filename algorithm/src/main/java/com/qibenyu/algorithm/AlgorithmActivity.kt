@@ -44,7 +44,7 @@ class AlgorithmActivity : Activity() {
 
         try {
 
-            val clazz = Class.forName(viewName)
+            val clazz = Class.forName(viewName ?: "")
             val constructor = clazz.getConstructor()
             val instance = constructor.newInstance()
             return instance as IAlgorithm

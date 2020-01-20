@@ -10,6 +10,8 @@
 
 1. 你知道 okhttp 是怎么复用连接的吗？
 
+2. Http 断点续传 addHeader("RANGE","bytes=100-500")
+
 ### LeakCanary
 
 1. leakcanary 的原理，哪些对象可以用来做 gc-root？
@@ -85,3 +87,6 @@ LruCache<String,Bitmap> cache = new  LruCache<String,Bitmap>(4*1024* 1024) {
 
 ### ConcorrentHashMap
 ### LinkedHashMap
+
+### 杂
+1. dex: 普通dex   classes.dex，  odex： 优化后的dex odex/classes.dex

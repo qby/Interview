@@ -41,7 +41,7 @@ class AlgorithmFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mAlgorithmMap = arguments?.get("ALGORITHM") as Map<String, Class<out IAlgorithm>>
+        mAlgorithmMap = arguments?.get("ALGORITHM") as LinkedHashMap<String, Class<out IAlgorithm>>
         val data: ArrayList<String> = arrayListOf()
         data.addAll(mAlgorithmMap.keys)
 
