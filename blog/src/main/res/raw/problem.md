@@ -90,3 +90,10 @@ LruCache<String,Bitmap> cache = new  LruCache<String,Bitmap>(4*1024* 1024) {
 
 ### 杂
 1. dex: 普通dex   classes.dex，  odex： 优化后的dex odex/classes.dex
+2. ScrollView 嵌套ListView显示不全
+    ```
+   右移两位为了 压缩放置Mode
+   MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2, MeasureSpec.AT_MOST);
+   supre.onMeasure(widthMeasureSpec,heightMeasureSpec);
+   
+   ```
