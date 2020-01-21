@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.OverScroller;
 
 import androidx.core.view.ViewCompat;
@@ -99,24 +100,17 @@ public class PaperKitView extends ViewGroup implements IShowable {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    private void defaultOnMeasure(int widthSpec, int heightSpec) {
-        final int width = LayoutManager.chooseSize(widthSpec,
-                getPaddingLeft() + getPaddingRight(),
-                ViewCompat.getMinimumWidth(this));
-        final int height = LayoutManager.chooseSize(heightSpec,
-                getPaddingTop() + getPaddingBottom(),
-                ViewCompat.getMinimumHeight(this));
-
-        measureChildren(widthSpec, heightSpec);
-        setMeasuredDimension(width, height);
-    }
-
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
 
         int childCount = getChildCount();
 
-        float left = 0;
+//        int left = l + getPaddingLeft();
+//        int right = r - l - getPaddingRight();
+//        int top = t + getPaddingTop();
+//        int bottom = b - t - getPaddingBottom();
+
+        float start = 0;
         for (int i = 0; i < childCount; i++) {
             View view = getChildAt(i);
 
@@ -124,20 +118,24 @@ public class PaperKitView extends ViewGroup implements IShowable {
                 continue;
             }
 
-            if (left == 0) {
-                left = getWidth() / 2f - view.getWidth() / 2f;
+            if (start == 0) {
+                start = getWidth() / 2f - view.getWidth() / 2f;
             }
             float top = getHeight() / 2f - view.getHeight() / 2f;
             MarginLayoutParams params = (MarginLayoutParams) view.getLayoutParams();
             view.layout(
-                    (int) left + params.leftMargin,
+                    (int) start + params.leftMargin,
                     (int) top + params.topMargin,
-                    (int) left + view.getMeasuredWidth() + params.rightMargin,
+                    (int) start + view.getMeasuredWidth() + params.rightMargin,
                     (int) top + view.getMeasuredHeight() + params.bottomMargin);
 
-            Log.d(TAG, "onLayout: left = " + left);
-            left += (view.getMeasuredWidth() + params.rightMargin + params.leftMargin);
+//            Log.d(TAG, "onLayout: left = " + left);
+            start += (view.getMeasuredWidth() + params.rightMargin + params.leftMargin);
 
+        }
+        if (changed) {
+
+            computeViewAlphaAndScale();
         }
     }
 
@@ -151,6 +149,21 @@ public class PaperKitView extends ViewGroup implements IShowable {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         mScreenCenterX = w / 2;
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+
+//        canvas.save();
+//        canvas.translate(getMeasuredWidth() * getChildCount(), 0);
+//        super.dispatchDraw(canvas);
+//        canvas.restore();
+//
+//        canvas.save();
+//        canvas.translate(-getMeasuredWidth() * getChildCount(), 0);
+//        super.dispatchDraw(canvas);
+//        canvas.restore();
     }
 
     @Override
@@ -179,6 +192,8 @@ public class PaperKitView extends ViewGroup implements IShowable {
 
     private float originalX, originalY;
 
+    private int mCurrentTag = 0;
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
@@ -192,32 +207,46 @@ public class PaperKitView extends ViewGroup implements IShowable {
                 break;
             case MotionEvent.ACTION_MOVE:
                 float dx = downX - event.getX() + originalX;
-
-                for (int i = 0; i < getChildCount(); i++) {
-                    View view = getChildAt(i);
-                    float viewScrollX = view.getX();
-                    float dCenterX = Math.abs(mScreenCenterX - viewScrollX) - view.getWidth() / 2f;
-                    view.setAlpha(1 - (dCenterX / mScreenCenterX));
-                    float scale = Math.max(1 - (dCenterX / mScreenCenterX), MIN_SCALE);
-                    view.setScaleX(scale);
-                    view.setScaleY(scale);
-                }
-
+                computeViewAlphaAndScale();
                 scrollTo((int) dx, 0);
                 break;
             case MotionEvent.ACTION_UP:
                 mVelocityTracker.computeCurrentVelocity(1000);
                 float vX = mVelocityTracker.getXVelocity();
-                if (Math.abs(vX) > mMinFlingVelocity) {
+//                if (Math.abs(vX) > mMinFlingVelocity) {
+//
+//                } else {
 
-                } else {
-
+                float centerViewDistance = Float.MAX_VALUE;
+//                    float dCenterX = Float.MAX_VALUE;
+                for (int i = 0; i < getChildCount(); i++) {
+                    View child = getChildAt(i);
+                    float viewScrollX = child.getX() + child.getMeasuredWidth() / 2f - getScrollX();
+                    float dCenterX = mScreenCenterX - viewScrollX;
+                    Log.d(TAG, "onTouchEvent: dCenterX = " + dCenterX);
+                    centerViewDistance = Math.min(Math.abs(dCenterX) - child.getWidth() / 2f, centerViewDistance);
                 }
-                int scrollDistance = 0;
-                mOverScroller.startScroll(getScrollX(), 0, scrollDistance, 0);
+
+                Log.d(TAG, "onTouchEvent: centerx = " + centerViewDistance);
+                mOverScroller.startScroll(getScrollX(), 0, (int) centerViewDistance, 0);
+//                }
                 break;
         }
         return true;
+    }
+
+    private void computeViewAlphaAndScale() {
+
+        for (int i = 0; i < getChildCount(); i++) {
+            View view = getChildAt(i);
+            float viewScrollX = view.getX() + view.getMeasuredWidth() / 2f - getScrollX();
+            float dCenterX = Math.abs(mScreenCenterX - viewScrollX) - view.getWidth() / 2f;
+            view.setAlpha(1 - (dCenterX / mScreenCenterX));
+            float scale = Math.max(1 - (dCenterX / mScreenCenterX), MIN_SCALE);
+            view.setScaleX(scale);
+            view.setScaleY(scale);
+        }
+
     }
 
     @Override
@@ -256,25 +285,18 @@ public class PaperKitView extends ViewGroup implements IShowable {
     @Override
     public void show() {
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 20; i++) {
             ColoredTextView view = new ColoredTextView(getContext());
-            view.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+            LayoutParams p = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            p.rightMargin = (int) ExtenisonsKt.dp(10);
+            p.leftMargin = (int) ExtenisonsKt.dp(10);
+            view.setLayoutParams(p);
 //            view.setBackgroundColor(COLORS[random.nextInt(COLORS.length)]);
             this.addView(view);
         }
-    }
 
-    private static final Random random = new Random();
-    private static final int[] COLORS = {
-            Color.parseColor("#E91E63"),
-            Color.parseColor("#673AB7"),
-            Color.parseColor("#3F51B5"),
-            Color.parseColor("#2196F3"),
-            Color.parseColor("#009688"),
-            Color.parseColor("#FF9800"),
-            Color.parseColor("#FF5722"),
-            Color.parseColor("#795548")
-    };
+        Log.d(TAG, "show: measure = " + getMeasuredWidth());
+    }
 
     public static final class LayoutParams extends ViewGroup.MarginLayoutParams {
 

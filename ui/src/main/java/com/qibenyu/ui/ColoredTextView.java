@@ -47,7 +47,7 @@ public class ColoredTextView extends androidx.appcompat.widget.AppCompatTextView
 
     {
         setTextColor(Color.WHITE);
-        setTextSize(TEXT_SIZES[random.nextInt(3)]);
+        setTextSize(28); //TEXT_SIZES[random.nextInt(3)]
         paint.setColor(COLORS[random.nextInt(COLORS.length)]);
         setPadding(X_PADDING, Y_PADDING, X_PADDING, Y_PADDING);
         setText(provinces.get(random.nextInt(20)));
