@@ -1,4 +1,4 @@
-package com.qibenyu.explore;
+package com.qibenyu.explore.glide;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -19,8 +19,11 @@ public class GlideActivity extends Activity {
         ImageView view = new ImageView(this);
         setContentView(view);
 
+        //基本使用
         Glide.with(this)
                 .load("https://static.runoob.com/images/demo/demo1.jpg")
                 .into(view);
+        
+
     }
 }

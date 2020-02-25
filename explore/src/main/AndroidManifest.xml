@@ -5,9 +5,7 @@
 
     <application>
 
-        <activity android:name="com.qibenyu.explore.WindowManagerActivity" />
-
-        <activity android:name="com.qibenyu.explore.SetupVivoActivity" />
+        <activity android:name="com.qibenyu.explore.windowmanager.WindowManagerActivity" />
 
         <activity android:name="com.qibenyu.explore.service.NotificationActivity" />
 
@@ -15,10 +13,11 @@
         <service android:name="com.qibenyu.explore.service.EmptyService" android:process=":work"/>
         <service android:name="com.qibenyu.explore.service.Empty2Service" />
 
-        <activity android:name=".HandlerActivity" />
+        <activity android:name=".handler.HandlerActivity" />
 
-        <activity android:name="com.qibenyu.explore.GlideActivity" />
-        <activity android:name=".LeakCanaryActivity" />
+        <activity android:name="com.qibenyu.explore.glide.GlideActivity" />
+        <activity android:name=".leak.LeakCanaryActivity" />
+        <activity android:name=".broadcast.ReceiverActivity" />
 
     </application>
 </manifest>

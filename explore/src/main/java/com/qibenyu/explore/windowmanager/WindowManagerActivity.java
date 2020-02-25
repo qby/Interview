@@ -1,4 +1,4 @@
-package com.qibenyu.explore;
+package com.qibenyu.explore.windowmanager;
 
 import android.app.Activity;
 import android.content.Context;

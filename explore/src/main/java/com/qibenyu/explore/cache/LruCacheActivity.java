@@ -1,4 +1,4 @@
-package com.qibenyu.explore;
+package com.qibenyu.explore.cache;
 
 import android.app.Activity;
 import android.graphics.Bitmap;

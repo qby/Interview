@@ -2,6 +2,8 @@ package com.qibenyu.algorithm;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -85,6 +87,5 @@ public class Permutations implements IAlgorithm {
             path.removeLast();
 
         }
-        int n = 16>>2;
     }
 }

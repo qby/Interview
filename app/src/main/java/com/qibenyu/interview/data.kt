@@ -1,18 +1,32 @@
 package com.qibenyu.interview
 
 import android.app.Activity
+import com.baronqi.pattern.decorator.DecoratorActivity
 import com.qibenyu.algorithm.*
 import com.qibenyu.architecture.jetpack.JetpackActivity
-import com.qibenyu.explore.*
+import com.qibenyu.explore.broadcast.ReceiverActivity
+import com.qibenyu.explore.glide.GlideActivity
+import com.qibenyu.explore.handler.HandlerActivity
+import com.qibenyu.explore.leak.LeakCanaryActivity
 import com.qibenyu.explore.service.NotificationActivity
+import com.qibenyu.explore.windowmanager.WindowManagerActivity
 import com.qibenyu.ui.*
 import com.qibenyu.ui.flow.FlowLayout
 import com.qibenyu.ui.paperkit.PaperKitView
 
 
-const val currentViewPagerItem = 0
+/**
+ * 0 : UI
+ * 1 : Algorithm
+ * 2 : Blog
+ * 3 : Architecture
+ * 4 : Explore
+ * 5 : Pattern
+ */
+const val currentViewPagerItem = 5
 val openItem =
-    PaperKitView::class.java
+    DecoratorActivity::class.java
+//    PaperKitView::class.java
 //    MultiTouchView::class.java
 //    ScalableImageView::class.java
 //    PagerView::class.java
@@ -31,7 +45,7 @@ var uiList = arrayListOf<Class<out IShowable>>(
     MultiTouchView::class.java
 )
 
-var patternMap = hashMapOf(
+var blogMap = hashMapOf(
     "OKHttp" to R.raw.okhttp,
     "Flutter State Management" to R.raw.flutter_state
 )
@@ -62,13 +76,17 @@ var architectureMap = hashMapOf<String, Class<out Activity>>(
     "Jetpack" to JetpackActivity::class.java
 )
 
-var exploreMap = hashMapOf<String, Class<out Activity>>(
+var exploreMap = hashMapOf(
     "Window Manager" to WindowManagerActivity::class.java,
-    "Vivo" to SetupVivoActivity::class.java,
     "foregroundService" to NotificationActivity::class.java,
     "Glide" to GlideActivity::class.java,
     "Handler" to HandlerActivity::class.java,
-    "LeakCanary" to LeakCanaryActivity::class.java
+    "LeakCanary" to LeakCanaryActivity::class.java,
+    "BroadcastReceiver Hook" to ReceiverActivity::class.java
 
+)
+
+var patternMap = hashMapOf<String, Class<out Activity>>(
+    "Decorator" to DecoratorActivity::class.java
 )
 
