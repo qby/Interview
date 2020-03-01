@@ -1,8 +1,5 @@
 package com.qibenyu.algorithm
 
-import android.util.Log
-import com.qibenyu.base.TAG
-
 /**
  * https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
  */

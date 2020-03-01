@@ -16,6 +16,7 @@ public class ReceiverActivity extends Activity {
 
     private HomeReceiver mReceiver;
 
+
     @Override
     protected void attachBaseContext(Context newBase) {
         Log.d(TAG, "attachBaseContext: " + newBase);

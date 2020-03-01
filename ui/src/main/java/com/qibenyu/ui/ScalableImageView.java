@@ -17,7 +17,7 @@ import android.widget.OverScroller;
 import androidx.annotation.Nullable;
 import androidx.core.view.GestureDetectorCompat;
 
-import com.qibenyu.base.ExtenisonsKt;
+import com.qibenyu.base.extension.ExtenisonsKt;
 import com.qibenyu.ui.util.BitmapUtil;
 
 import org.jetbrains.annotations.NotNull;

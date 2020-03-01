@@ -16,7 +16,7 @@ import android.widget.OverScroller;
 
 import androidx.core.view.ViewCompat;
 
-import com.qibenyu.base.ExtenisonsKt;
+import com.qibenyu.base.extension.ExtenisonsKt;
 import com.qibenyu.ui.ColoredTextView;
 import com.qibenyu.ui.IShowable;
 

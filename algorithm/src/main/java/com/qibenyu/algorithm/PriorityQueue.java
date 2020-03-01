@@ -2,7 +2,7 @@ package com.qibenyu.algorithm;
 
 import android.util.Log;
 
-import com.qibenyu.base.ExtenisonsKt;
+import com.qibenyu.base.extension.ExtenisonsKt;
 
 import org.jetbrains.annotations.NotNull;
 

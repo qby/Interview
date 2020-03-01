@@ -11,8 +11,8 @@ import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
-import com.qibenyu.base.dp
-import com.qibenyu.base.isRTL
+import com.qibenyu.base.extension.dp
+import com.qibenyu.base.extension.isRTL
 import java.util.*
 
 data class Step(val content: String)

@@ -13,6 +13,15 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        /**
+         * minSdkVersion 设置为 21 或更高值，只需在模块级 build.gradle
+         *      文件中将 multiDexEnabled 设置为 true
+         *
+         * minSdkVersion 设置为 20 或更低值，需要在build.gradle 文件中将multiDexEnabled 设置为true,
+         * 并且引入 com.android.support:multidex 库, 并且需要继承MultiDexApplication或者MultiDex.install()
+         */
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -42,6 +51,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    implementation 'com.android.support:multidex:1.0.3'
 
     implementation project(":base")
     implementation project(":ui")

@@ -1,6 +1,6 @@
 package com.qibenyu.algorithm;
 
-import com.qibenyu.base.ExtenisonsKt;
+import com.qibenyu.base.extension.ExtenisonsKt;
 
 import org.jetbrains.annotations.NotNull;
 

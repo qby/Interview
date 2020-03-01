@@ -13,10 +13,12 @@ import com.bumptech.glide.request.RequestOptions;
 public class GlideActivity extends Activity {
 
 
+    private ImageView view;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ImageView view = new ImageView(this);
+        view = new ImageView(this);
         setContentView(view);
 
         //基本使用
@@ -25,5 +27,12 @@ public class GlideActivity extends Activity {
                 .into(view);
         
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Glide.with(this).clear(view);
     }
 }

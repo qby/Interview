@@ -1,6 +1,6 @@
 package com.qibenyu.algorithm
 
-import com.qibenyu.base.print
+import com.qibenyu.base.extension.print
 
 /**
  * Two Sum

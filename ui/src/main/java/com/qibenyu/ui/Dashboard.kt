@@ -4,8 +4,8 @@ import android.content.Context
 import android.graphics.*
 import android.view.View
 import android.view.ViewGroup
-import com.qibenyu.base.bind2ViewGroup
-import com.qibenyu.base.dp2px
+import com.qibenyu.base.extension.bind2ViewGroup
+import com.qibenyu.base.extension.dp
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -19,9 +19,9 @@ class Dashboard(context: Context) : View(context), IShowable {
     private lateinit var effect: PathDashPathEffect
 
     companion object {
-        val RADIUS = dp2px(150f)
+        val RADIUS = 150.dp()
         const val ANGLE = 120f
-        val LENGTH = dp2px(100f)
+        val LENGTH = 100.dp()
         const val TAG = "Dashboard"
     }
 
@@ -39,16 +39,16 @@ class Dashboard(context: Context) : View(context), IShowable {
 
         paint = Paint(Paint.ANTI_ALIAS_FLAG)
         paint.style = Paint.Style.STROKE
-        paint.strokeWidth = dp2px(2f)
+        paint.strokeWidth = 2.dp()
 
 
         dash = Path()
-        dash.addRect(0f, 0f, dp2px(2f), dp2px(10f), Path.Direction.CW)
+        dash.addRect(0f, 0f, 2.dp(), 10.dp(), Path.Direction.CW)
 
         val measure = PathMeasure(path, false)
         effect = PathDashPathEffect(
             dash,
-            (measure.length - dp2px(2f)) / 20,
+            (measure.length - 2.dp()) / 20,
             0f,
             PathDashPathEffect.Style.ROTATE
         )

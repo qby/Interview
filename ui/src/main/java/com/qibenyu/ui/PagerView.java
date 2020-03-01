@@ -11,7 +11,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.OverScroller;
 
-import com.qibenyu.base.ExtenisonsKt;
+import com.qibenyu.base.extension.ExtenisonsKt;
 
 import org.jetbrains.annotations.NotNull;
 

@@ -9,7 +9,7 @@ import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.ViewGroup
 import android.widget.EditText
-import com.qibenyu.base.dp2px
+import com.qibenyu.base.extension.dp2px
 
 
 class MaterialEditText(context: Context) : EditText(context)

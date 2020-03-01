@@ -2,14 +2,12 @@ package com.qibenyu.ui.flow;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Rect;
-import android.os.strictmode.Violation;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.qibenyu.base.ExtenisonsKt;
+import com.qibenyu.base.extension.ExtenisonsKt;
 import com.qibenyu.ui.ColoredTextView;
 import com.qibenyu.ui.IShowable;
 

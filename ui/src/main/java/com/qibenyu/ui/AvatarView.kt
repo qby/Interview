@@ -6,8 +6,8 @@ import android.content.Context
 import android.graphics.*
 import android.view.View
 import android.view.ViewGroup
-import com.qibenyu.base.bind2ViewGroup
-import com.qibenyu.base.dp2px
+import com.qibenyu.base.extension.bind2ViewGroup
+import com.qibenyu.base.extension.dp2px
 
 
 class AvatarView(context: Context) : View(context), IShowable {

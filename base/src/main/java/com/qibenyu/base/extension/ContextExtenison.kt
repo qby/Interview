@@ -1,4 +1,4 @@
-package com.qibenyu.base
+package com.qibenyu.base.extension
 
 import android.content.Context
 import android.content.pm.ApplicationInfo

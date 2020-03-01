@@ -10,9 +10,9 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.BounceInterpolator
-import com.qibenyu.base.TAG
-import com.qibenyu.base.bind2ViewGroup
-import com.qibenyu.base.dp2px
+import com.qibenyu.base.extension.TAG
+import com.qibenyu.base.extension.bind2ViewGroup
+import com.qibenyu.base.extension.dp2px
 import kotlin.random.Random
 
 
