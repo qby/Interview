@@ -23,7 +23,7 @@ import com.qibenyu.ui.paperkit.PaperKitView
  * 4 : Explore
  * 5 : Pattern
  */
-const val currentViewPagerItem = 5
+const val currentViewPagerItem = 4
 val openItem =
     DecoratorActivity::class.java
 //    PaperKitView::class.java

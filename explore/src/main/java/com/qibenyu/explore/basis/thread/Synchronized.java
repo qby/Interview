@@ -1,4 +1,4 @@
-package com.qibenyu.explore.thread;
+package com.qibenyu.explore.basis.thread;
 
 /**
  *

@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class ReceiverActivity extends Activity {
@@ -56,6 +57,12 @@ public class ReceiverActivity extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
 
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return "HomeReceiver";
         }
     }
 }

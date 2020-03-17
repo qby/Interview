@@ -46,6 +46,7 @@ public class WindowManagerActivity extends Activity {
                 }
             }
         },1000);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -91,6 +92,8 @@ public class WindowManagerActivity extends Activity {
         mParams.format = PixelFormat.TRANSPARENT;
 
         mWm.addView(mResultTv, mParams);
+
+
     }
 
     private void hideFloatWindow() {

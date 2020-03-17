@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.multidex.MultiDex
 import com.qibenyu.base.BaseApp
+import com.qibenyu.explore.broadcast.HackAMS
 
 class App : BaseApp() {
 
@@ -15,6 +16,8 @@ class App : BaseApp() {
     override fun onCreate() {
         super.onCreate()
         MultiDex.install(this)
+
+        HackAMS.hookAMSAfter26()
 
     }
 }

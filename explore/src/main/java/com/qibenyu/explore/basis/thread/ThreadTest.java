@@ -1,4 +1,4 @@
-package com.qibenyu.explore.thread;
+package com.qibenyu.explore.basis.thread;
 
 import android.util.Log;
 
@@ -36,7 +36,6 @@ public class ThreadTest {
         };
 
         factory.newThread(() -> {
-
 
         }).start();
 
