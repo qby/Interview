@@ -59,9 +59,26 @@ dependencies {
     api 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.2'
     api 'org.commonjava.googlecode.markdown4j:markdown4j:2.2-cj-1.1'
 
-    api 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     api 'androidx.recyclerview:recyclerview:1.1.0'
     api 'androidx.viewpager2:viewpager2:1.0.0'
+
+    // Litho
+    api 'com.facebook.litho:litho-core:0.35.1-SNAPSHOT'
+    api 'com.facebook.litho:litho-widget:0.35.1-SNAPSHOT'
+
+    annotationProcessor 'com.facebook.litho:litho-processor:0.35.1-SNAPSHOT'
+
+    // SoLoader
+    api 'com.facebook.soloader:soloader:0.2.0'
+
+    // For integration with Fresco
+    api 'com.facebook.litho:litho-fresco:0.35.1-SNAPSHOT'
+
+    // For testing
+    testApi 'com.facebook.litho:litho-testing:0.35.1-SNAPSHOT'
+
+
 }
 repositories {
     mavenCentral()

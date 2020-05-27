@@ -4,6 +4,8 @@ import com.qibenyu.base.extension.ExtenisonsKt;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+
 public class Sorts implements IAlgorithm {
     @NotNull
     @Override
@@ -31,13 +33,21 @@ public class Sorts implements IAlgorithm {
     @Override
     public String answer() {
         int[] array = {5, 3, 4, 6, 2, 8, 7, 1};
-//        quickSort(array, 0, array.length - 1);
+        quickSort(array, 0, array.length - 1);
 //        selectionSort(array);
 //        insertSort(array);
 //        shellSort(array);
-        aux = new int[array.length];
-        mergeSort(array, 0, array.length - 1);
+//        aux = new int[array.length];
+//        mergeSort(array, 0, array.length - 1);
         return ExtenisonsKt.print(array);
+    }
+
+    public static void main(String[] args) {
+        int[] array = {5, 3, 4, 6, 2, 8, 7, 1};
+        quickSort(array, 0, array.length - 1);
+
+//        Arrays.toString(args);
+        System.out.println(Arrays.toString(array));
     }
 
     private void selectionSort(int[] array) {
@@ -83,37 +93,36 @@ public class Sorts implements IAlgorithm {
      * @param start
      * @param end
      */
-    private void quickSort(int[] array, int start, int end) {
+    private static void quickSort(int[] array, int start, int end) {
 
         if (start > end) return;
 
-        int i = start;
-        int j = end;
+        int left = start;
+        int right = end;
 
-        int x = array[start];
+        int target = array[start];
 
-        while (i != j) {
+        while(left != right) {
 
-            while (j > i && array[j] >= x) {
-                j--;
-            }
-            while (i < j && array[i] <= x) {
-                i++;
+            while(left < right && array[right] >= target) {
+                right--;
             }
 
-            if (i < j) {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+            while(left < right && array[left] <= target) {
+                left++;
+            }
+
+
+            if (left < right) {
+                ExtenisonsKt.exch(array, left, right);
             }
         }
 
-        int temp = array[i];
-        array[i] = array[start];
-        array[start] = temp;
+        ExtenisonsKt.exch(array, start, left);
 
-        quickSort(array, start, i - 1);
-        quickSort(array, j + 1, end);
+        quickSort(array, start, left - 1);
+        quickSort(array, right + 1, end);
+
     }
 
     private int[] aux = null;

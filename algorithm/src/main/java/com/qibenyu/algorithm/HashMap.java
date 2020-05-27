@@ -120,7 +120,7 @@ public class HashMap<K, V> implements IAlgorithm {
         return key.hashCode();
     }
 
-    private V get(K key) {
+    V get(K key) {
 
         int hash = hash(key);
 

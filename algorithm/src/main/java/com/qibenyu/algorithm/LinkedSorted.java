@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class LinkedSorted implements IAlgorithm {
 
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 
@@ -41,6 +41,22 @@ public class LinkedSorted implements IAlgorithm {
         return "归并排序";
     }
 
+    public static void main(String[] args) {
+
+        ListNode node1 = new ListNode(3);
+        ListNode node2 = new ListNode(4);
+        ListNode node3 = new ListNode(1);
+        ListNode node4 = new ListNode(7);
+
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+
+        LinkedSorted sorted = new LinkedSorted();
+
+        ListNode node = sorted.sortList(node1);
+        System.out.println(node.toString());
+    }
     @NotNull
     @Override
     public String answer() {

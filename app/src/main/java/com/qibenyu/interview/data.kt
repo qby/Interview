@@ -8,6 +8,7 @@ import com.qibenyu.explore.broadcast.ReceiverActivity
 import com.qibenyu.explore.glide.GlideActivity
 import com.qibenyu.explore.handler.HandlerActivity
 import com.qibenyu.explore.leak.LeakCanaryActivity
+import com.qibenyu.explore.litho.LithoActivity
 import com.qibenyu.explore.service.NotificationActivity
 import com.qibenyu.explore.windowmanager.WindowManagerActivity
 import com.qibenyu.ui.*
@@ -82,7 +83,9 @@ var exploreMap = hashMapOf(
     "Glide" to GlideActivity::class.java,
     "Handler" to HandlerActivity::class.java,
     "LeakCanary" to LeakCanaryActivity::class.java,
-    "BroadcastReceiver Hook" to ReceiverActivity::class.java
+    "BroadcastReceiver Hook" to ReceiverActivity::class.java,
+    "Litho" to LithoActivity::class.java
+
 
 )
 

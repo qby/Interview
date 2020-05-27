@@ -62,4 +62,5 @@ dependencies {
     implementation project(":blog")
     implementation project(":explore")
     implementation project(":pattern")
+    implementation 'androidx.test.uiautomator:uiautomator:2.2.0'
 }

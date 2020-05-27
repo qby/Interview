@@ -1,29 +1,34 @@
 package com.qibenyu.algorithm
 
+import android.util.SparseBooleanArray
+import android.util.SparseIntArray
+
 
 /**
  */
 class BinarySearch : IAlgorithm {
 
 
-    private fun binarySearch(array: IntArray, target: Int): Int {
+    fun binarySearch(array: IntArray, target: Int): Int {
 
-        var lo = 0
+        var lo = 0;
         var hi = array.size - 1
 
-        while (lo <= hi) {
+        var mid = (hi + lo) / 2
 
-            var mid = lo + (hi - lo) / 2
+        while(mid > 1) {
 
-            println("mid = $mid")
-            when {
-                target > array[mid] -> lo = mid + 1
-                target < array[mid] -> hi = mid - 1
-                else -> return mid
+            if (array[mid] == target) {
+                return mid
+            } else if(array[mid] > target){
+                hi = mid - 1
+            } else {
+                lo = mid + 1
             }
+            mid = (hi + lo) / 2
         }
 
-        return -1
+        return mid
 
     }
 

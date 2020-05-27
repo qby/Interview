@@ -66,7 +66,13 @@ public class MultiTouchView extends View implements IShowable {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.drawBitmap(mBitmap, offsetX, offsetY, mPaint);
+        canvas.save();
+
+        canvas.translate(200, 0);
+        canvas.rotate(45);
+        canvas.drawBitmap(mBitmap, 0, 0, mPaint);
+
+        canvas.restore();
     }
 
     @Override

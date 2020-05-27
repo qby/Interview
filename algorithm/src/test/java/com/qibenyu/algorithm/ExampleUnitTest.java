@@ -12,6 +12,11 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+
+        BinarySearch bs = new BinarySearch();
+
+        int res = bs.binarySearch(new int[]{1, 2, 3, 4, 5, 6}, 3);
+
+        System.out.println(res);
     }
 }
