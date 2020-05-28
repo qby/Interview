@@ -6,24 +6,30 @@ public class BinarySqrt {
 
     public double sqrt(double n) {
 
-        double max,mid,min;
-        max = n;
-        min = 0;
+        double left = 0;
+        double right = n;
+        double result = (left + right) / 2;
 
-        mid = (min + max) / 2;
 
-        while(true) {
-            if (n - mid * mid < 0.001) break;
-            mid = (min + max) / 2;
+        while (Math.abs(n - result * result) > 0.01) {
 
-            if (mid * mid > n) {
-                max = n;
-            } else if(mid * mid < n) {
-                min = mid;
+            if (result * result > n) {
+                right = result;
+            } else if (result * result < n) {
+                left = result;
             } else {
-                return mid;
+                return result;
             }
+            result = (left + right) / 2;
         }
-        return mid;
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        BinarySqrt s = new BinarySqrt();
+        double re = s.sqrt(16);
+        System.out.println(re);
     }
 }
