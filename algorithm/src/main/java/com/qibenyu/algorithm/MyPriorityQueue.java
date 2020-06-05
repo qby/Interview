@@ -7,9 +7,8 @@ import com.qibenyu.base.extension.ExtenisonsKt;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
-import java.util.Collections;
 
-public class PriorityQueue implements IAlgorithm {
+public class MyPriorityQueue implements IAlgorithm {
     private static final String TAG = "PriorityQueue";
 
     private int[] array;
@@ -18,11 +17,11 @@ public class PriorityQueue implements IAlgorithm {
 
     private int size;
 
-    public PriorityQueue() {
+    public MyPriorityQueue() {
         this(10);
     }
 
-    public PriorityQueue(int size) {
+    public MyPriorityQueue(int size) {
 
         this.size = size;
 
@@ -99,7 +98,7 @@ public class PriorityQueue implements IAlgorithm {
     @Override
     public String answer() {
 
-        PriorityQueue queue = new PriorityQueue(20);
+        MyPriorityQueue queue = new MyPriorityQueue(20);
 
         for (int i = 0; i < 10; i++) {
             queue.put(i);
