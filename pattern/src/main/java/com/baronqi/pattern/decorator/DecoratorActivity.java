@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class DecoratorActivity extends Activity {
+public class DecoratorActivity extends AppCompatActivity {
 
     public static final String TAG = "DecoratorActivity";
 

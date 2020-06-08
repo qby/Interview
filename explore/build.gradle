@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply from: './aspectj-configure-lib.gradle' // ajc 编译所需gradle脚本
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
@@ -42,5 +43,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation project(":base")
+    implementation 'androidx.asynclayoutinflater:asynclayoutinflater:1.0.0'
+
+    api 'org.aspectj:aspectjrt:1.9.5'
+
+    implementation project(path: ":lib")
+    implementation 'com.github.rubensousa:gravitysnaphelper:1.5'
 
 }

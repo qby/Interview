@@ -18,10 +18,10 @@ class AlgorithmFragment : Fragment() {
 
     private lateinit var mRecyclerView: RecyclerView
 
-    private lateinit var mAlgorithmMap: Map<String, Class<out IAlgorithm>>
+    private lateinit var mAlgorithmMap: LinkedHashMap<String, Class<out IAlgorithm>>
 
     companion object {
-        fun newInstance(map: HashMap<String, Class<out IAlgorithm>>): AlgorithmFragment {
+        fun newInstance(map: LinkedHashMap<String, Class<out IAlgorithm>>): AlgorithmFragment {
             val bundle = Bundle()
             bundle.putSerializable("ALGORITHM", map)
             val fragment = AlgorithmFragment()

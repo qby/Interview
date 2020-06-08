@@ -7,15 +7,11 @@
 
         <activity android:name="com.qibenyu.explore.windowmanager.WindowManagerActivity" />
 
-        <activity android:name="com.qibenyu.explore.service.NotificationActivity" />
-
-        <service android:name="com.qibenyu.explore.service.NotificationService" />
-        <service android:name="com.qibenyu.explore.service.EmptyService" android:process=":work"/>
-        <service android:name="com.qibenyu.explore.service.Empty2Service" />
-
         <activity android:name=".handler.HandlerActivity" />
 
-        <activity android:name="com.qibenyu.explore.glide.GlideActivity" />
+        <activity
+                android:name="com.qibenyu.explore.glide.GlideActivity"
+                android:launchMode="singleTop" />
         <activity android:name=".leak.LeakCanaryActivity" />
         <activity android:name=".broadcast.ReceiverActivity" />
         <activity android:name=".litho.LithoActivity" />

@@ -13,7 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
+        ndkVersion "21.1.6352462"
         /**
          * minSdkVersion 设置为 21 或更高值，只需在模块级 build.gradle
          *      文件中将 multiDexEnabled 设置为 true

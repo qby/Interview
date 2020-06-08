@@ -9,7 +9,7 @@ import com.qibenyu.explore.glide.GlideActivity
 import com.qibenyu.explore.handler.HandlerActivity
 import com.qibenyu.explore.leak.LeakCanaryActivity
 import com.qibenyu.explore.litho.LithoActivity
-import com.qibenyu.explore.service.NotificationActivity
+import com.qibenyu.explore.tiktok.TikTokActivity
 import com.qibenyu.explore.windowmanager.WindowManagerActivity
 import com.qibenyu.ui.*
 import com.qibenyu.ui.flow.FlowLayout
@@ -25,8 +25,8 @@ import com.qibenyu.ui.paperkit.PaperKitView
  * 5 : Pattern
  */
 const val currentViewPagerItem = 4
-val openItem =
-    DecoratorActivity::class.java
+val openItem = null
+//    DecoratorActivity::class.java
 //    PaperKitView::class.java
 //    MultiTouchView::class.java
 //    ScalableImageView::class.java
@@ -79,13 +79,13 @@ var architectureMap = hashMapOf<String, Class<out Activity>>(
 
 var exploreMap = hashMapOf(
     "Window Manager" to WindowManagerActivity::class.java,
-    "foregroundService" to NotificationActivity::class.java,
     "Glide" to GlideActivity::class.java,
     "Handler" to HandlerActivity::class.java,
     "LeakCanary" to LeakCanaryActivity::class.java,
     "BroadcastReceiver Hook" to ReceiverActivity::class.java,
-    "Litho" to LithoActivity::class.java
-
+    "Litho" to LithoActivity::class.java,
+    "BroadcastReceiver Hook" to ReceiverActivity::class.java,
+    "TikTok" to TikTokActivity::class.java
 
 )
 

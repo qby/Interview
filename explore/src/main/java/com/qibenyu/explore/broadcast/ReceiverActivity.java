@@ -11,6 +11,9 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.qibenyu.explore.annotation.TraceInsert;
+import com.qibenyu.lib.ReceiverFilter;
+
 public class ReceiverActivity extends Activity {
 
     private static final String TAG = "BroadcastReceiverActivi";
@@ -36,6 +39,8 @@ public class ReceiverActivity extends Activity {
 
     }
 
+    @ReceiverFilter
+    @TraceInsert
     private void register() {
 
         mReceiver = new HomeReceiver();

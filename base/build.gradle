@@ -79,6 +79,10 @@ dependencies {
     testApi 'com.facebook.litho:litho-testing:0.35.1-SNAPSHOT'
 
 
+
+    api 'androidx.test.uiautomator:uiautomator:2.2.0'
+
+
 }
 repositories {
     mavenCentral()
