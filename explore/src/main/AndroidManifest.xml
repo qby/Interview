@@ -15,6 +15,7 @@
         <activity android:name=".leak.LeakCanaryActivity" />
         <activity android:name=".broadcast.ReceiverActivity" />
         <activity android:name=".litho.LithoActivity" />
+        <activity android:name=".tiktok.TikTokActivity" />
 
     </application>
 </manifest>

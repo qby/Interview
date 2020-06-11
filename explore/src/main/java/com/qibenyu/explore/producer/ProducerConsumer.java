@@ -59,7 +59,7 @@ public class ProducerConsumer {
                 // 如果多个线程同时wait在这里
                 // 在消费者notifyAll后，不会再判断标记, 就会往下执行
                 // 会造成 生产多余指定目标，或者 消费低于最小值的情况
-                while (product > 5) {
+                while (product >= 5) {
                     System.out.println("produce: 等待消费 ------" + product);
                     object.wait();
                 }
