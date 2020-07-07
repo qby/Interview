@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/framework" />
             <option value="$PROJECT_DIR$/lib" />
             <option value="$PROJECT_DIR$/pattern" />
+            <option value="$PROJECT_DIR$/plugin" />
             <option value="$PROJECT_DIR$/ui" />
           </set>
         </option>

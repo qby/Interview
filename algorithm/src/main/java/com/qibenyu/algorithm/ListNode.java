@@ -2,7 +2,7 @@ package com.qibenyu.algorithm;
 
 public class ListNode {
     int val;
-    LinkedSorted.ListNode next;
+    ListNode next;
 
     ListNode(int x) {
         val = x;
