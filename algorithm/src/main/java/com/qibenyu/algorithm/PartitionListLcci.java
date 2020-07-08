@@ -1,7 +1,5 @@
 package com.qibenyu.algorithm;
 
-import com.qibenyu.algorithm.LinkedSorted.ListNode;
-
 public class PartitionListLcci {
 
     public ListNode partition(ListNode head, int x) {
@@ -57,4 +55,6 @@ public class PartitionListLcci {
         }
 
     }
+
+
 }
