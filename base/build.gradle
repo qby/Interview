@@ -23,6 +23,9 @@ android {
         }
     }
 
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -33,29 +36,29 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     testImplementation 'junit:junit:4.13'
     testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     api 'androidx.appcompat:appcompat:1.1.0'
 
-    api 'io.reactivex.rxjava2:rxjava:2.2.17'
+    api 'io.reactivex.rxjava2:rxjava:2.2.19'
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    api 'org.greenrobot:eventbus:3.1.1'
+    api 'org.greenrobot:eventbus:3.2.0'
     api 'com.jakewharton.rxbinding2:rxbinding:2.2.0'
     api 'com.github.bumptech.glide:glide:4.11.0'
     api 'com.github.bumptech.glide:okhttp3-integration:4.11.0'
     api 'com.github.bumptech.glide:recyclerview-integration:4.11.0'
 
-    api 'com.squareup.okhttp3:okhttp:4.3.1'
-    api 'com.squareup.okhttp3:logging-interceptor:4.3.1'
+    api 'com.squareup.okhttp3:okhttp:4.8.1'
+    api 'com.squareup.okhttp3:logging-interceptor:4.8.1'
     api 'com.facebook.stetho:stetho:1.5.1'
     api 'com.facebook.stetho:stetho-okhttp3:1.5.1'
     api 'com.facebook.stetho:stetho-urlconnection:1.5.1'
-    api 'com.squareup.retrofit2:retrofit:2.7.1'
-    api 'com.squareup.retrofit2:converter-gson:2.7.1'
-    api 'com.squareup.retrofit2:adapter-rxjava2:2.7.1'
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
     api 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.2'
     api 'org.commonjava.googlecode.markdown4j:markdown4j:2.2-cj-1.1'
 
@@ -70,14 +73,13 @@ dependencies {
     annotationProcessor 'com.facebook.litho:litho-processor:0.35.1-SNAPSHOT'
 
     // SoLoader
-    api 'com.facebook.soloader:soloader:0.2.0'
+    api 'com.facebook.soloader:soloader:0.9.0'
 
     // For integration with Fresco
     api 'com.facebook.litho:litho-fresco:0.35.1-SNAPSHOT'
 
     // For testing
     testApi 'com.facebook.litho:litho-testing:0.35.1-SNAPSHOT'
-
 
 
     api 'androidx.test.uiautomator:uiautomator:2.2.0'

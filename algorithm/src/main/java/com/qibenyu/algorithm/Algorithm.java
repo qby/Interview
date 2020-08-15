@@ -2,8 +2,8 @@ package com.qibenyu.algorithm;
 
 public class Algorithm {
     static {
-        System.loadLibrary("algorithm");
+//        System.loadLibrary("algorithm");
     }
 
-    public static native int[] sort();
+//    public static native int[] sort();
 }

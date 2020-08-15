@@ -1,0 +1,21 @@
+Executable : /Users/qibenyu/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake
+arguments : 
+-H/Users/qibenyu/AndroidStudioProjects/Interview/algorithm/src/main/cpp
+-DCMAKE_FIND_ROOT_PATH=/Users/qibenyu/AndroidStudioProjects/Interview/algorithm/.cxx/cmake/release/prefab/armeabi-v7a/prefab
+-DCMAKE_BUILD_TYPE=Release
+-DCMAKE_TOOLCHAIN_FILE=/Users/qibenyu/Library/Android/sdk/ndk/21.3.6528147/build/cmake/android.toolchain.cmake
+-DANDROID_ABI=armeabi-v7a
+-DANDROID_NDK=/Users/qibenyu/Library/Android/sdk/ndk/21.3.6528147
+-DANDROID_PLATFORM=android-19
+-DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
+-DCMAKE_ANDROID_NDK=/Users/qibenyu/Library/Android/sdk/ndk/21.3.6528147
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/qibenyu/AndroidStudioProjects/Interview/algorithm/build/intermediates/cmake/release/obj/armeabi-v7a
+-DCMAKE_MAKE_PROGRAM=/Users/qibenyu/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_SYSTEM_VERSION=19
+-B/Users/qibenyu/AndroidStudioProjects/Interview/algorithm/.cxx/cmake/release/armeabi-v7a
+-GNinja
+jvmArgs : 
+
+Build command args:
