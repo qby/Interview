@@ -24,8 +24,6 @@ class JetpackVM(app: Application) : AndroidViewModel(app) {
     val map :MutableLiveData<LiveMap> = MutableLiveData()
 
     fun initViewBean() {
-        val lock = ReentrantLock()
-        lock.lock()
         handler.postDelayed({
             Log.d(TAG, "initViewBean: ")
 
