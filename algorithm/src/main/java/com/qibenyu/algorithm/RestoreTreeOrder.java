@@ -3,6 +3,9 @@ package com.qibenyu.algorithm;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
+/**
+ * 通过前序和中序恢复树
+ */
 public class RestoreTreeOrder {
 
 

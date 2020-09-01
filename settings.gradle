@@ -1,3 +1,4 @@
+include ':kotlin'
 include ':plugin'
 include ':app', ':base', ':algorithm', ':architecture', ':framework', ':componment', ':ui', ':blog', ':explore', ':pattern'
 include ':lib'
