@@ -15,7 +15,6 @@ class App : BaseApp() {
 
     override fun onCreate() {
         super.onCreate()
-        MultiDex.install(this)
 
         HackAMS.hookAMSAfter26()
 

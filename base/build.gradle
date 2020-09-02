@@ -84,8 +84,10 @@ dependencies {
 
     api 'androidx.test.uiautomator:uiautomator:2.2.0'
 
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7"
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9-native-mt'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9-native-mt'
+
+    api "androidx.startup:startup-runtime:1.0.0-alpha03"
 
 }
 repositories {
