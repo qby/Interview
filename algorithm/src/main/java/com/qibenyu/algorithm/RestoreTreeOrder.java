@@ -10,33 +10,35 @@ public class RestoreTreeOrder {
 
 
     HashMap<Integer, Integer> map = new HashMap<>();
+    private int[] preOrder;
 
     public TreeNode restoreOrder(int[] preOrder, int[] inOrder) {
         if (preOrder.length != inOrder.length) {
             return null;
         }
+        this.preOrder = preOrder;
 
         for (int i = 0; i < inOrder.length; i++) {
             map.put(inOrder[i], i);
         }
 
-        return restore(preOrder, 0, preOrder.length - 1, 0, inOrder.length - 1);
+        return restore(0, 0, inOrder.length - 1);
     }
 
-    private TreeNode restore(int[] preOrder, int pL, int pR, int iL, int iR) {
+    private TreeNode restore(int pre_root, int iL, int iR) {
 
-        if (pL > pR || iL > iR) {
+        if (iL > iR) {
             return null;
         }
 
-        int root = preOrder[pL];
+        int root = preOrder[pre_root];
 
         TreeNode treeNode = new TreeNode(root);
 
         int index = map.get(root);
 
-        treeNode.left = restore(preOrder, pL + 1, index - iL + pL, iL, index - 1);
-        treeNode.right = restore(preOrder, index - iL + pL + 1, pR, index + 1, iR);
+        treeNode.left = restore(pre_root + 1, iL, index - 1);
+        treeNode.right = restore(index - iL + pre_root + 1, index + 1, iR);
 
         return treeNode;
 
