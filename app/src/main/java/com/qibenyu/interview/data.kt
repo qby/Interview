@@ -24,8 +24,9 @@ import com.qibenyu.ui.paperkit.PaperKitView
  * 4 : Explore
  * 5 : Pattern
  */
-const val currentViewPagerItem = 4
-val openItem = null
+const val currentViewPagerItem = 0
+val openItem = ChargingView::class.java
+
 //    DecoratorActivity::class.java
 //    PaperKitView::class.java
 //    MultiTouchView::class.java
@@ -33,6 +34,7 @@ val openItem = null
 //    PagerView::class.java
 
 var uiList = arrayListOf<Class<out IShowable>>(
+    ChargingView::class.java,
     PagerView::class.java,
     PaperKitView::class.java,
     Dashboard::class.java,
