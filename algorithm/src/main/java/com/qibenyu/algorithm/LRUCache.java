@@ -59,17 +59,22 @@ public class LRUCache {
     }
 
     private static final String TAG = "LRUCache";
+
     public void put(String key, String value) {
 
         if (map.containsKey(key)) {
             Node node = map.get(key);
-            node.value = value;
-            map.put(key, node);
+            if (node.value != value) {
+                node.value = value;
+                map.put(key, node);
+                deleteNode(node);
+                addNode(node);
+            }
         } else {
             if (map.size() >= capacity) {
                 Node pre = tail.pre;
                 deleteNode(pre);
-                System.out.println("put: " + pre.key + " , " + pre.key);
+                System.out.println("put: " + pre.key + " , " + pre.value);
                 map.remove(pre.key);
             }
             Node node = new Node(key, value);
@@ -92,17 +97,14 @@ public class LRUCache {
 
     public static void main(String[] args) {
         LRUCache cache = new LRUCache(2 /* 缓存容量 */);
+        cache.put("2", "1");
         cache.put("1", "1");
-        cache.put("2", "2");
-        String s1 = cache.get("1");// 返回  1
-        cache.put("3", "3");    // 该操作会使得密钥 2 作废
-        String s2 = cache.get("2");// 返回 -1 (未找到)
-        cache.put("4", "4");    // 该操作会使得密钥 1 作废
+        cache.put("2", "3");    // 该操作会使得密钥 2 作废
+        cache.put("4", "1");    // 该操作会使得密钥 1 作废
         String s3 = cache.get("1");// 返回 -1 (未找到)
-        String s4 = cache.get("3");// 返回  3
-        String s5 = cache.get("4");// 返回  4
+        String s4 = cache.get("2");// 返回  3
 
-        System.out.println(s1 + " , " + s2 + " , " + s3 + " , " + s4 + " , " + s5);
+        System.out.println(s3 + " , " + s4);
 
     }
 }
