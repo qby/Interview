@@ -27,18 +27,8 @@ public class GlideActivity extends Activity {
         setContentView(view);
         Log.d(TAG, "onCreate: ");
 
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                getWindow().getDecorView().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        startActivity(new Intent(GlideActivity.this, GlideActivity.class));
-                    }
-                },2000);
-            }
-        });
+        view.setOnClickListener(v -> getWindow().getDecorView().postDelayed(() ->
+                startActivity(new Intent(GlideActivity.this, GlideActivity.class)),2000));
 
         //基本使用
         Glide.with(this)

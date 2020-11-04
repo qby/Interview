@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.7">
+      <module name="Interview.algorithm" target="1.8" />
+      <module name="Interview.app" target="1.8" />
+      <module name="Interview.architecture" target="1.8" />
+      <module name="Interview.base" target="1.8" />
+      <module name="Interview.blog" target="1.8" />
+      <module name="Interview.componment" target="1.8" />
+      <module name="Interview.explore" target="1.8" />
+      <module name="Interview.framework" target="1.8" />
+      <module name="Interview.kotlin" target="1.8" />
+      <module name="Interview.pattern" target="1.8" />
+      <module name="Interview.plugin" target="1.8" />
+      <module name="Interview.ui" target="1.8" />
       <module name="lib" target="1.7" />
     </bytecodeTargetLevel>
   </component>

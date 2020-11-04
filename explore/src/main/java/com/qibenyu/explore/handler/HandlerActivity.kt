@@ -22,6 +22,7 @@ class HandlerActivity : Activity() {
 
         Log.d("Baron", "myapplication = ${getMyApplication()}")
 
+
     }
 
     private fun getMyApplication(): Application {

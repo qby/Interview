@@ -10,6 +10,7 @@ import com.qibenyu.explore.handler.HandlerActivity
 import com.qibenyu.explore.leak.LeakCanaryActivity
 import com.qibenyu.explore.litho.LithoActivity
 import com.qibenyu.explore.tiktok.TikTokActivity
+import com.qibenyu.explore.touch.TouchActivity
 import com.qibenyu.explore.windowmanager.WindowManagerActivity
 import com.qibenyu.ui.*
 import com.qibenyu.ui.flow.FlowLayout
@@ -24,8 +25,8 @@ import com.qibenyu.ui.paperkit.PaperKitView
  * 4 : Explore
  * 5 : Pattern
  */
-const val currentViewPagerItem = 0
-val openItem = ChargingView::class.java
+const val currentViewPagerItem = 4
+val openItem = TouchActivity::class.java
 
 //    DecoratorActivity::class.java
 //    PaperKitView::class.java
@@ -87,7 +88,8 @@ var exploreMap = hashMapOf(
     "BroadcastReceiver Hook" to ReceiverActivity::class.java,
     "Litho" to LithoActivity::class.java,
     "BroadcastReceiver Hook" to ReceiverActivity::class.java,
-    "TikTok" to TikTokActivity::class.java
+    "TikTok" to TikTokActivity::class.java,
+    "Touch" to TouchActivity::class.java
 
 )
 

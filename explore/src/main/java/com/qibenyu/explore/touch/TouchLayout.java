@@ -4,13 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
-public class TouchLayout extends LinearLayout {
+public class TouchLayout extends FrameLayout {
 
-    private static final String TAG = "TouchLayout";
+    private static final String TAG = "Touch1Layout";
 
     public TouchLayout(Context context) {
         super(context);
@@ -30,14 +31,13 @@ public class TouchLayout extends LinearLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.d(TAG, "dispatchTouchEvent: " + (ev.getActionMasked() == MotionEvent.ACTION_DOWN));
         return super.dispatchTouchEvent(ev);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if (ev.getActionMasked() == MotionEvent.ACTION_MOVE) {
-            return true;
-        }
+        Log.d(TAG, "onInterceptTouchEvent: ev = " + (ev.getAction() == MotionEvent.ACTION_DOWN));
         return super.onInterceptTouchEvent(ev);
     }
 

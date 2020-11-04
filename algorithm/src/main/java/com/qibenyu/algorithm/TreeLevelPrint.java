@@ -1,5 +1,7 @@
 package com.qibenyu.algorithm;
 
+import android.util.Log;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +13,7 @@ import java.util.Stack;
  */
 public class TreeLevelPrint {
 
-    class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -21,7 +23,7 @@ public class TreeLevelPrint {
         }
     }
 
-    public List<List<Integer>> print(TreeNode root) {
+    public static List<List<Integer>> print(TreeNode root) {
 
         List<List<Integer>> lists = new ArrayList<>();
 
@@ -49,5 +51,19 @@ public class TreeLevelPrint {
         }
 
         return lists;
+    }
+
+    public static void main(String[] args) {
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        deque.add(1);
+        deque.add(2);
+        deque.add(3);
+        deque.add(4);
+
+        while(!deque.isEmpty()) {
+            Integer remove = deque.pop();
+            System.out.println(remove);
+        }
+
     }
 }

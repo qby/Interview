@@ -1,6 +1,7 @@
 package com.qibenyu.interview
 
 import android.content.Context
+import android.os.Debug
 import android.util.Log
 import androidx.multidex.MultiDex
 import com.qibenyu.base.BaseApp
@@ -16,7 +17,9 @@ class App : BaseApp() {
     override fun onCreate() {
         super.onCreate()
 
+        Debug.startAllocCounting()
         HackAMS.hookAMSAfter26()
+        Debug.stopAllocCounting()
 
     }
 }
