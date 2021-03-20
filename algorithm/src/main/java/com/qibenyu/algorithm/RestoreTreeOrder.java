@@ -44,6 +44,26 @@ public class RestoreTreeOrder {
 
     }
 
+    private TreeNode restore(int[] nums, int start, int end) {
+        if (start < end) {
+            return null;
+        }
+
+        TreeNode treeNode = new TreeNode(nums[end]);
+
+        int leftEnd = 0;
+        for (int i = start; i < end; i++) {
+            if (nums[i] < nums[end]) {
+                leftEnd = i;
+            }
+        }
+
+        treeNode.left = restore(nums, start, leftEnd);
+        treeNode.right = restore(nums, leftEnd + 1, end - 1);
+
+        return treeNode;
+    }
+
     public static void main(String[] args) {
 
         RestoreTreeOrder restoreTreeOrder = new RestoreTreeOrder();

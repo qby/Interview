@@ -4,6 +4,7 @@ import android.app.Activity
 import com.baronqi.pattern.decorator.DecoratorActivity
 import com.qibenyu.algorithm.*
 import com.qibenyu.architecture.jetpack.JetpackActivity
+import com.qibenyu.explore.aidl.AIDLActivity
 import com.qibenyu.explore.broadcast.ReceiverActivity
 import com.qibenyu.explore.glide.GlideActivity
 import com.qibenyu.explore.handler.HandlerActivity
@@ -46,7 +47,8 @@ var uiList = arrayListOf<Class<out IShowable>>(
     MuahView::class.java,
     StepView::class.java,
     ScalableImageView::class.java,
-    MultiTouchView::class.java
+    MultiTouchView::class.java,
+    LevelBar::class.java
 )
 
 var blogMap = hashMapOf(
@@ -89,7 +91,8 @@ var exploreMap = hashMapOf(
     "Litho" to LithoActivity::class.java,
     "BroadcastReceiver Hook" to ReceiverActivity::class.java,
     "TikTok" to TikTokActivity::class.java,
-    "Touch" to TouchActivity::class.java
+    "Touch" to TouchActivity::class.java,
+    "AIDL sub Test" to AIDLActivity::class.java
 
 )
 

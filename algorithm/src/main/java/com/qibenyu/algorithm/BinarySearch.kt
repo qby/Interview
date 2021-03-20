@@ -16,11 +16,11 @@ class BinarySearch : IAlgorithm {
 
         var mid = (hi + lo) / 2
 
-        while(mid > 1) {
+        while (lo <= hi) {
 
             if (array[mid] == target) {
                 return mid
-            } else if(array[mid] > target){
+            } else if (array[mid] > target) {
                 hi = mid - 1
             } else {
                 lo = mid + 1

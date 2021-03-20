@@ -33,7 +33,7 @@ public class StringToInt {
             }
         }
 
-        return negetive ? (int) result : (int) -result;
+        return negetive ? -(int) result : (int) result;
     }
 
     public static void main(String[] args) {

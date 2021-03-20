@@ -17,6 +17,8 @@
         <activity android:name=".litho.LithoActivity" />
         <activity android:name=".tiktok.TikTokActivity" />
         <activity android:name=".touch.TouchActivity" />
+        <activity android:name=".aidl.AIDLActivity" />
 
+        <service android:name=".aidl.ConnectService" android:process=":connect"/>
     </application>
 </manifest>

@@ -1,6 +1,7 @@
 package com.qibenyu.explore.broadcast;
 
 import android.content.IntentFilter;
+import android.os.Debug;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -31,6 +32,7 @@ public class HackAMS {
 
         // 第三步：偷梁换柱，将我们的 proxy 替换原来的对象
         instanceField.set(value, proxy);
+        Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
 
     }
 

@@ -3,10 +3,7 @@ package com.qibenyu.explore.handler
 import android.app.Activity
 import android.app.Application
 import android.content.Intent
-import android.os.Build
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.os.*
 import android.util.Log
 import androidx.annotation.RequiresApi
 import com.qibenyu.explore.glide.GlideActivity
@@ -14,6 +11,17 @@ import kotlin.math.log
 
 class HandlerActivity : Activity() {
 
+
+    private val handler: Handler = object : Handler() {
+        override fun handleMessage(msg: Message) {
+
+            Log.d(TAG, "handleMessage: ")
+        }
+    }
+
+    companion object{
+        private const val TAG = "HandlerActivity"
+    }
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
