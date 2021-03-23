@@ -23,7 +23,7 @@ class AIDLActivity : Activity() {
 
     }
 
-    val handler = Handler()
+    private val handler = Handler()
 
     private val connection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder) {
@@ -36,11 +36,11 @@ class AIDLActivity : Activity() {
     }
 
     private fun onServiceConnect() {
-//        for (index in 1..100000) {
+        for (index in 1..10000) {
 //            handler.postDelayed({
-                aidlCall(0)
+                aidlCall(index)
 //            }, 1000)
-//        }
+        }
 
     }
 
